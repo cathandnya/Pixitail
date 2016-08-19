@@ -83,57 +83,12 @@
 	[super viewDidUnload];
 }
 
-/*
-- (long) reload {
-	long	err = [[Tinami sharedInstance] allertReachability];
-	if (err == -1) {
-		[self pixiv].username = account.username;
-		[self pixiv].password = account.password;
-	
-		err = [[self pixiv] login:self];
-		if (err) {
-			UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"ログインに失敗しました。" message:@"" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] autorelease];
-			[alert show];
-			return err;
-		} else {
-			[self showProgress:YES withTitle:@"ログイン中..." tag:1000];
-		}
-		return err;
-	} else if (err) {
-		return err;
-	}
-	
-	UIScrollView *scrollView = (UIScrollView *)self.view;
-	scrollView.contentSize = CGSizeMake(320, 400);
-	[scrollView scrollsToTop];
-		
-	NSDictionary	*info = [[Tinami sharedInstance] infoForIllustID:self.illustID];
-	if ([info objectForKey:@"MediumURLString"]) {
-		//[self update:info];
-		[self performSelector:@selector(update:) withObject:info afterDelay:0.1];
-	} else {
-		TinamiContentParser		*parser = [[TinamiContentParser alloc] initWithEncoding:NSUTF8StringEncoding];
-		CHHtmlParserConnection	*con = [[CHHtmlParserConnection alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://api.tinami.com/content/info?api_key=4baafbbe9fbd0&cont_id=%@", self.illustID]]];
-	
-		con.referer = [self referer];
-		con.delegate = self;
-		parser_ = parser;
-		connection_ = con;
-	
-		[con startWithParser:parser];
-	}
-	
-	[self.tableView reloadData];
-	return 0;
-}
-*/
-
 - (id) parser {
 	return [[[TinamiContentParser alloc] initWithEncoding:NSUTF8StringEncoding] autorelease];
 }
 
 - (CHHtmlParserConnection *) connection {
-	return [[[CHHtmlParserConnection alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://api.tinami.com/content/info?api_key=4baafbbe9fbd0&cont_id=%@&models=1&dates=1", self.illustID]]] autorelease];
+	return [[[CHHtmlParserConnection alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://api.tinami.com/content/info?api_key=%@&cont_id=%@&models=1&dates=1", TINAMI_API_KEY, self.illustID]]] autorelease];
 }
 
 - (void) connection:(CHHtmlParserConnection *)con finished:(long)err {
@@ -178,7 +133,7 @@
 		[super connection:con finished:err];
 		if (err == 0) {
 			TinamiCommentParser		*parser = [[TinamiCommentParser alloc] initWithEncoding:NSUTF8StringEncoding];
-			CHHtmlParserConnection	*con = [[CHHtmlParserConnection alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://api.tinami.com/content/comment/list?api_key=4baafbbe9fbd0&cont_id=%@", self.illustID]]];
+			CHHtmlParserConnection	*con = [[CHHtmlParserConnection alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://api.tinami.com/content/comment/list?api_key=%@&cont_id=%@", TINAMI_API_KEY, self.illustID]]];
 	
 			con.referer = [self referer];
 			con.delegate = self;

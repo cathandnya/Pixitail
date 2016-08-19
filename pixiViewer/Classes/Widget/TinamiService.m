@@ -18,7 +18,7 @@
 }
 
 - (NSError *) login {
-	NSMutableURLRequest	*req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://api.tinami.com/logout?api_key=4baafbbe9fbd0"]];
+	NSMutableURLRequest	*req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://api.tinami.com/logout?api_key=%@", TINAMI_API_KEY]]];
 	[req setHTTPMethod:@"GET"];
 	NSURLResponse *res = nil;
 	NSError *err = nil;
@@ -27,7 +27,7 @@
 		return err;
 	}
 	
-	NSString *body = [NSString stringWithFormat:@"api_key=4baafbbe9fbd0&email=%@&password=%@", encodeURIComponent(self.username), encodeURIComponent(self.password)];
+	NSString *body = [NSString stringWithFormat:@"api_key=%@&email=%@&password=%@", TINAMI_API_KEY, encodeURIComponent(self.username), encodeURIComponent(self.password)];
 	req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://api.tinami.com/auth"]];
 	[req setHTTPMethod:@"POST"];
 	[req setHTTPBody:[body dataUsingEncoding:NSASCIIStringEncoding]];
@@ -49,7 +49,7 @@
 }
 
 - (CHHtmlParserConnection *) makeConnection:(NSString *)method page:(int)page {
-	CHHtmlParserConnection *con = [[CHHtmlParserConnection alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://api.tinami.com/%@&api_key=4baafbbe9fbd0&page=%d", method, page]]];
+	CHHtmlParserConnection *con = [[CHHtmlParserConnection alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://api.tinami.com/%@&api_key=%@&page=%d", method, TINAMI_API_KEY, page]]];
 	con.referer = @"http://www.tinami.com/";
 	return con;
 }

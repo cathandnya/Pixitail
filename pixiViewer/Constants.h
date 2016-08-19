@@ -74,5 +74,9 @@
 #endif
 #define DISABLE_SKYDRIVE               ([SKYDRIVE_CLIENT_ID length] == 0)
 
+// TINAMI
+#ifndef PIXITAIL
+    #define TINAMI_API_KEY              @""
+#endif
 
 #endif /* Constants_h */
