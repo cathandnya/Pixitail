@@ -1,0 +1,308 @@
+/* 
+   Localizable.strings
+   pixiViewer
+
+   Created by nya on 09/08/22.
+   Copyright 2009 __MyCompanyName__. All rights reserved.
+ */
+
+
+"My illust" = "自分のイラスト";
+"My pixiv list" = "マイピク一覧";
+"My pixiv" = "マイピク新着イラスト";
+"Favorite list" = "お気に入りユーザ一覧";
+"Favorite" = "お気に入りユーザ新着イラスト";
+"Favorite(Hidden) list" = "非公開お気に入りユーザ一覧";
+"Bookmarks" = "ブックマーク";
+"Bookmarks(Hidden)" = "非公開ブックマーク";
+"New entry" = "みんなの新着イラスト";
+"Ranking" = "デイリーランキング";
+"WeeklyRanking" = "ウィークリーランキング";
+"MonthlyRanking" = "マンスリーランキング";
+"Search" = "検索";
+"SearchHistory" = "検索履歴";
+"SavedTags" = "タグブックマーク";
+"Illust by %@" = "%@のイラスト";
+"Bookmark by %@" = "%@のブックマーク";
+"Cancel" = "キャンセル";
+
+"Tags" = "タグ";
+"Title/Caption" = "タイトル/キャプション";
+"Illust" = "イラスト";
+"UserName" = "ユーザ名";
+"Badge" = "バッジ";
+
+"Load next illist..." = "次をロード...";
+"Load next users..." = "次のユーザをロード...";
+"Favorite User" = "お気に入りユーザ";
+"Favorite User(Hidden)" = "非公開お気に入りユーザ";
+
+"Collection" = "コレクション";
+"NewFollows" = "フォロー新着";
+"PixaNew" = "新着";
+
+"Other" = "その他";
+"Application information" = "情報";
+"Application support" = "サポート";
+
+"Go to illusts of this user" = "ユーザのイラストを表示";
+"Go to bookmarks of this user" = "ユーザのブックマークを表示";
+"Go to the web of this illust" = "Safari で開く";
+"Go to pixaru search" = "ピクサるサーチ";
+"Post to tumblr" = "Tumblr";
+"Post to tumblr(Private)" = "リブログ(プライベート)";
+"Reblog" = "Reblog";
+"Reblog(Private)" = "Reblog(Private)";
+"Like" = "Like";
+
+"Are you sure to add to favolite?" = "どちらへ追加しますか？";
+"Are you sure to remove from favolite?" = "お気に入りから削除してもよろしいですか？";
+
+"Add to collection" = "コレクションへ追加";
+"Add to follow" = "フォローする";
+
+"Add to bookmark" = "ブックマークへ追加";
+
+"Go to this illust" = "このイラストを表示";
+
+
+"Save ok." = "カメラロールへ保存しました。";
+"Save failed." = "保存に失敗しました。";
+
+"Add to bookmark ok." = "ブックマークへ追加しました。";
+"Add to bookmark failed." = "ブックマークへの追加に失敗しました。";
+
+"Add to tag bookmark ok." = "タグブックマークへ追加しました。";
+
+"Add to favorite ok." = "お気に入りユーザへ追加しました。";
+"Add to favorite failed." = "お気に入りユーザへの追加に失敗しました。";
+
+"Add to collection ok." = "コレクションへ追加しました。";
+"Add to collection failed." = "コレクションへの追加に失敗しました。";
+
+"Add to follow ok." = "フォローしました。";
+"Add to follow failed." = "フォローに失敗しました。";
+
+"Remove from bookmark ok." = "ブックマークから削除しました。";
+"Remove from bookmark failed." = "ブックマークからの削除に失敗しました。";
+
+"Comment post" = "コメントの投稿";
+"Comment post ok." = "コメントを投稿しました。";
+"Comment post failed." = "コメントの投稿に失敗しました。";
+"Comment length is too long." = "コメントは255文字以下で入力してください。";
+"Comment length is zero." = "コメントを入力してください。";
+
+"Rating ok." = "評価をしました。";
+"Rating failed." = "評価に失敗しました。";
+"Rate 1" = "1: ★";
+"Rate 2" = "2: ★★";
+"Rate 3" = "3: ★★★";
+"Rate 4" = "4: ★★★★";
+"Rate 5" = "5: ★★★★★";
+"Rate 6" = "6: ★★★★★★";
+"Rate 7" = "7: ★★★★★★★";
+"Rate 8" = "8: ★★★★★★★★";
+"Rate 9" = "9: ★★★★★★★★★";
+"Rate 10" = "10: ★★★★★★★★★★";
+
+"Connection faied." = "通信に失敗しました。";
+"Network is not connected." = "ネットワークに接続されていません。";
+
+"Login faied." = "ログインに失敗しました。";
+"Please confirm your account." = "アカウント設定を確認してください。";
+
+"Image load failed." = "画像の読み込みに失敗しました。";
+
+"No account." = "アカウントの設定がありません。";
+"Please set account." = "アカウントを追加してください。";
+
+"Tumblr post ok." = "リブログしました。";
+"Tumblr post failed." = "リブログに失敗しました。";
+
+"Tumblr reblog ok." = "リブログしました。";
+"Tumblr reblog failed." = "リブログに失敗しました。";
+
+"Tumblr like ok." = "Like しました。";
+"Tumblr like failed." = "Like に失敗しました。";
+"Tumblr unlike ok." = "Unlike しました。";
+"Tumblr unlike failed." = "Unlike に失敗しました。";
+
+"Now login..." = "ログイン中...";
+
+"RatingViewCount" = "閲覧数：";
+"RatingCount" = "評価回数：";
+"RatingScore" = "総合点：";
+"MyRate" = "あなたの評価";
+"Ten" = "点";
+
+"Tumblr caption" = "<a href=\"%@\">「%@」/「%@」の作品</a> [%@] #<a href=\"http://cathand.org/illustail\">illustail</a>";
+"Tumblr caption no author" = "<a href=\"%@\">%@ [%@]</a> #<a href=\"http://cathand.org/illustail\">illustail</a>";
+"Twitter format" = " [%service]「%title」/「%author」の作品 %url #illustail";
+"Twitter format danbooru" = " [%service] %url #illustail";
+"Tumblr format" = " [%service] %url #illustail";
+
+"Tumblr caption pixitail" = "<a href=\"%@\">「%@」/「%@」の作品</a> [%@] #<a href=\"http://cathand.org/pixitail\">pixitail</a>";
+"Tumblr caption pixitail no author" = "<a href=\"%@\">[%@]</a> #<a href=\"http://cathand.org/pixitail\">pixitail</a>";
+"Twitter format pixitail" = " [%service]「%title」/「%author」の作品 %url #pixitail";
+"Tumblr format pixitail" = " [%service] %url #pixitail";
+
+"Add to tag bookmark?" = "タグブックマークへ追加しますか？";
+"Add ok." = "追加する";
+
+"Change matrix image size." = "一覧画像のサイズを変更します。";
+"4 cols." = "小";
+"3 cols." = "中";
+"2 cols." = "大";
+
+"Start slideshow?" = "スライドショー";
+"Start." = "新 → 古";
+"Start reverse." = "古 → 新";
+"Start at random." = "ランダム";
+
+"PixAccount" = "アカウント";
+"Settings" = "設定";
+"Add new account..." = "アカウントを追加...";
+"Username" = "ユーザ名";
+"Mailaddress" = "メールアドレス";
+"Password" = "パスワード";
+"PixAccount Type" = "サービス";
+"Invalid PixAccount" = "不正なアカウントです";
+"Delete ?" = "このアカウントを削除しますか？";
+"Delete" = "削除する";
+"Reorder" = "編集";
+"Done" = "完了";
+
+"Tumblr post account" = "投稿に使うアカウント";
+"Nothing" = "なし";
+
+"Slideshow" = "スライドショー";
+"Support" = "サポート";
+"Tumblr setting" = "Tumblr 設定";
+
+"Slideshow period" = "間隔";
+"Slideshow display" = "表示";
+"Disable sleep" = "自動スリープ無効";
+"Show clock" = "時計を表示";
+
+"Disk cache" = "ディスクキャッシュ";
+"Auto rotate" = "画面の自動回転";
+
+"aspect fit" = "全体を表示";
+"aspect fill" = "拡大して表示";
+
+"period 0" = "5 秒";
+"period 1" = "10 秒";
+"period 2" = "15 秒";
+"period 3" = "30 秒";
+"period 4" = "1 分";
+"period 5" = "3 分";
+"period 6" = "5 分";
+"period 7" = "10 分";
+"%d sec" = "%d 秒";
+"%d min" = "%d 分";
+
+"illust" = "イラスト";
+"manga" = "マンガ";
+"model" = "モデル";
+"cosplay" = "コスプレ";
+"novel" = "小説";
+
+"new" = "新着";
+"score" = "支援スコア";
+"value" = "支援数";
+"view" = "閲覧数";
+"rand" = "ランダム";
+
+"total_view" = "総閲覧数:";
+"user_view" = "閲覧ユーザー数:";
+"valuation" = "支援ユーザー数:";
+
+"Assist ok." = "支援しました。";
+"Assist failed." = "支援に失敗しました。";
+
+"Ad" = "広告";
+"DisableAd" = "広告を非表示にする";
+"DisableAd_Disabled" = "広告は表示中です";
+"DisableAd_Enabled" = "広告は非表示です";
+"SKRequest failed." = "通信に失敗しました";
+"cannot make payments." = "現在、購入できません。";
+"Purchase failed." = "購入に失敗しました";
+"Purchase" = "購入する";
+"DisableAd Adon" = "広告非表示アドオン";
+"Already purchased." = "購入済みです";
+
+// OAuth
+"PIN is valid?\n %@" = "以下の番号でよろしいですか？\n%@";
+"PIN is invalid length" = "番号の文字数が正しくありません。";
+"Please copy." = "もういちどコピーし直してください。";
+"Authenticated" = "認証されています";
+"Not authenticated" = "認証されていません";
+"Copy PIN number displayed above." = "アプリを認証後、\nPINを入力してください。";
+"You really want to remove your auth info?" = "認証情報を破棄します。よろしいですか？";
+"your auth info is removed." = "認証情報を破棄しました。";
+"OAuth authentication..." = "Twitterに接続して認証を行う";
+"Remove OAuth authentication..." = "認証情報を破棄する";
+"Auth" = "認証";
+
+
+//
+"Enter a passcode" = "パスコードを入力";
+"Re-enter your Passcode" = "パスコードを再入力";
+"Enter Passcode" = "パスコードを入力";
+"Do you want to turn passcode off?" = "パスコードロックを無効にしますか？";
+"Do you want to turn passcode on?" = "パスコードロックを有効にしますか？";
+"Passcode lock" = "パスコードロック";
+"Passcode lock is enable" = "有効";
+"Passcode lock is disable" = "無効";
+
+
+"Seiga" = "ニコニコ静画";
+"All" = "すべて";
+"Nijie" = "ニジエ";
+"fg" = "旧fg";
+
+//
+"SaveDist" = "画像の保存先";
+"SaveToCameraRoll" = "カメラロール";
+"Retry" = "再試行";
+
+"SaveToDropBox" = "Dropbox";
+"DropboxAccount" = "Dropbox";
+"Failed to upload to Dropbox." = "Dropboxへの保存に失敗しました。";
+
+"Failed to upload to Tumblr." = "Tumblrへの投稿に失敗しました。";
+
+"SaveToEvernote" = "Evernote";
+"EvernoteAccount" = "Evernote";
+"Failed to upload to Evernote." = "Evernoteへの投稿に失敗しました。";
+"Failed to login to Evernote." = "Evernoteへのログインに失敗しました。";
+
+"SaveToSugarSync" = "SugarSync";
+"SugarSyncAccount" = "SugarSync";
+"Sharing to SugarSync is finished." = "SugarSyncへ保存しました。";
+"Failed to upload to SugarSync." = "SugarSyncへの保存に失敗しました。";
+
+"SaveToGoogleDrive" = "Googleドライブ";
+"GoogleDriveAccount" = "Googleドライブ";
+"Sharing to GoogleDrive is finished." = "Googleドライブへ保存しました。";
+"Failed to upload to GoogleDrive." = "Googleドライブへの保存に失敗しました。";
+
+"SaveToSkyDrive" = "SkyDrive";
+"SkyDriveAccount" = "SkyDrive";
+"Sharing to SkyDrive is finished." = "SkyDriveへ保存しました。";
+"Failed to upload to SkyDrive." = "SkyDriveへの保存に失敗しました。";
+
+"SaveToPogoplug" = "Pogoplug";
+"PogoplugAccount" = "Pogoplug";
+"Sharing to Pogoplug is finished." = "Pogoplugへ保存しました。";
+"Failed to upload to Pogoplug." = "Pogoplugへの保存に失敗しました。";
+
+"Sharing to Tumblr is finished." = "Tumblrへ投稿しました。";
+"Failed to upload to Tumblr." = "Tumblrへの投稿に失敗しました。";
+
+"Login failed." = "ログインに失敗しました。";
+"Dropbox Session Ended" = "Dropboxの認証が切れました。";
+"Do you want to relink?" = "再認証しますか？";
+"Relink" = "再認証";
+
+"Mail address" = "メールアドレス";

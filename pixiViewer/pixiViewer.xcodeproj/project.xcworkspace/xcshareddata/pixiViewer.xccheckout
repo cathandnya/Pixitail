@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>9C2E22DC-AEEB-4C66-B1A9-0C85BAC015A7</string>
+	<key>IDESourceControlProjectName</key>
+	<string>pixiViewer</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>70A35E38B044A259DDDBB055A177C1FCA54B019A</key>
+		<string>https://bitbucket.org/cathandnya/illustail-pixitail.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Project/pixiViewer/pixiViewer.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>70A35E38B044A259DDDBB055A177C1FCA54B019A</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://bitbucket.org/cathandnya/illustail-pixitail.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>70A35E38B044A259DDDBB055A177C1FCA54B019A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>70A35E38B044A259DDDBB055A177C1FCA54B019A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Illustail_Pixitail</string>
+		</dict>
+	</array>
+</dict>
+</plist>

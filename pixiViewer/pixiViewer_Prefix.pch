@@ -1,0 +1,17 @@
+//
+// Prefix header for all source files of the 'pixiViewer' target in the 'pixiViewer' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+#endif
+
+#import "Constants.h"
+
+
+#ifdef NDEBUG
+	#define DLog(...)
+#else
+	#define DLog(...)		NSLog(__VA_ARGS__)
+#endif
