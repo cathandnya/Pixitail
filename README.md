@@ -1,6 +1,6 @@
 # Pixitail
 
-Pixiv viewer.
+Pixiv viewer for iOS.
 
 #### ビルド方法
 
@@ -10,6 +10,4 @@ pod install してできた pixiViewer.xcworkspace を開いてビルドして�
 
 クラウドへの保存を有効にするには、各サービスの API Key を Constants.h にセットしてください。
 
-#### Wishlist
-
-http://www.amazon.co.jp/registry/wishlist/3PVH77SC83PVR
+[![Donate](http://pledgie.com/campaigns/32386.png)](https://pledgie.com/campaigns/32386)
