@@ -3390,7 +3390,7 @@
 			attributes = {
 				LastSwiftMigration = 0720;
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0730;
 				TargetAttributes = {
 					0E2F26FC19ECCC6B001349C2 = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -4630,7 +4630,6 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/LiveSDK\"",
 				);
-				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = pixiViewer_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -5324,7 +5323,6 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/LiveSDK\"",
 				);
-				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = pixiViewer_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -5369,7 +5367,6 @@
 					"\"$(SRCROOT)/LiveSDK\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = pixiViewer_Prefix.pch;
@@ -5414,7 +5411,6 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/LiveSDK\"",
 				);
-				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = pixiViewer_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
