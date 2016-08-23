@@ -10,7 +10,7 @@
 #import "PixitailConstants.h"
 
 
-#define VERS		(129)
+#define VERS		(130)
 
 
 @implementation PixitailConstants
@@ -39,7 +39,7 @@
 }
 
 - (NSString *) versURL {
-	return nil;
+	//return nil;
 	return @"http://dl.dropbox.com/u/7748830/pixiv.vers";
 }
 

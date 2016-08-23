@@ -1682,8 +1682,6 @@
 		</dict>
 		<key>upload_finish_regex</key>
 		<string>&lt;div class=&quot;finish_upload&quot;&gt;&lt;p&gt;&lt;span class=&quot;f18&quot;&gt;\[ &lt;a href=&quot;member_illust\.php\?mode=medium&amp;amp;illust_id=([0-9]+?)&quot; title=&quot;.+&quot;&gt;</string>
-		<key>comments_body_path</key>
-		<string>body.html</string>
 		<key>comments_divide_str</key>
 		<string>&lt;div class=&quot;comment&quot;&gt;</string>
 		<key>comments_username_regex</key>
