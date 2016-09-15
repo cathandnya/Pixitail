@@ -15,10 +15,10 @@ let defaultImageSize: CGFloat = 75
 
 class WidgetCell: UITableViewCell {
 
-	private var imageViews: [CHCachedImageView] = []
+	fileprivate var imageViews: [CHCachedImageView] = []
 	//private var activityBaseView: RoundedRectView
 	//private var activityView: UIActivityIndicatorView
-	private var selectionLayer: CALayer
+	fileprivate var selectionLayer: CALayer
 	var context: NSExtensionContext?
 
     required init?(coder aDecoder: NSCoder) {
@@ -38,8 +38,8 @@ class WidgetCell: UITableViewCell {
 		activityBaseView.radius = 4
 		activityView.hidesWhenStopped = true;
 		*/
-		selectionLayer.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.7).CGColor
-		selectionLayer.hidden = true;
+		selectionLayer.backgroundColor = UIColor.black.withAlphaComponent(0.7).cgColor
+		selectionLayer.isHidden = true;
 		selectionLayer.zPosition = 10
 		
 		let gr = UITapGestureRecognizer(target: self, action: #selector(WidgetCell.tapAction(_:)))
@@ -51,22 +51,22 @@ class WidgetCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
 	
-	class func heightForWidth(w: CGFloat) -> CGFloat {
+	class func heightForWidth(_ w: CGFloat) -> CGFloat {
 		return floor(w / CGFloat(Int(w / defaultImageSize)))
 	}
 
-	private var cols: Int {
+	fileprivate var cols: Int {
 		get {
 			return Int(self.frame.size.width / imageSize)
 		}
 	}
-	private var imageSize: CGFloat {
+	fileprivate var imageSize: CGFloat {
 		get {
 			return WidgetCell.heightForWidth(self.frame.size.width)
 		}
@@ -99,21 +99,21 @@ class WidgetCell: UITableViewCell {
 						v = imageViews[i]
 					} else {
 						v = CHCachedImageView()
-						v.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.2)
-						v.contentMode = UIViewContentMode.ScaleAspectFill
+						v.backgroundColor = UIColor.white.withAlphaComponent(0.2)
+						v.contentMode = UIViewContentMode.scaleAspectFill
 						v.clipsToBounds = true
 						v.referer = "http://www.pixiv.net/"
 						contentView.addSubview(v)
 						//contentView.insertSubview(v, belowSubview: activityBaseView)
 						imageViews.append(v)
 					}
-					v.url = NSURL(string: e.thumbnail_url)
+					v.url = URL(string: e.thumbnail_url)
 				}
 			}
 		}
 		
 		let size = imageSize
-		var r = CGRectMake(0, 0, size, size)
+		var r = CGRect(x: 0, y: 0, width: size, height: size)
 		for v in imageViews {
 			var f = r;
 			if v != imageViews.last {
@@ -141,21 +141,21 @@ class WidgetCell: UITableViewCell {
 		}
 		*/
 		
-		selectionLayer.hidden = true;
+		selectionLayer.isHidden = true;
 	}
 	
-	func tapAction(sender: UITapGestureRecognizer) {
-		let loc = sender.locationInView(contentView)
+	func tapAction(_ sender: UITapGestureRecognizer) {
+		let loc = sender.location(in: contentView)
 		for v in imageViews {
-			if CGRectContainsPoint(v.frame, loc) {
-				if let idx = imageViews.indexOf(v) {
+			if v.frame.contains(loc) {
+				if let idx = imageViews.index(of: v) {
 					CATransaction.begin()
 					CATransaction.setDisableActions(true)
 					selectionLayer.frame = v.frame
-					selectionLayer.hidden = false
+					selectionLayer.isHidden = false
 					CATransaction.commit()
 					
-					dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC / 10)), dispatch_get_main_queue()) {
+					DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(NSEC_PER_SEC / 10)) / Double(NSEC_PER_SEC)) {
 						if let e = self.entries?.list[idx] as? Entry {
 							self.selected(e)
 						}
@@ -165,25 +165,25 @@ class WidgetCell: UITableViewCell {
 		}
 	}
 	
-	func selected(entry: Entry) {
-		var url: NSURL?
+	func selected(_ entry: Entry) {
+		var url: URL?
 		if entry.service_name == "pixiv" {
-			url = NSURL(string: "pixitail://org.cathand.pixitail/pixiv/\(entry.illust_id)")
+			url = URL(string: "pixitail://org.cathand.pixitail/pixiv/\(entry.illust_id)")
 		} else if entry.service_name == "TINAMI" {
-			url = NSURL(string: "illustail://org.cathand.illustail/tinami/\(entry.illust_id)")
+			url = URL(string: "illustail://org.cathand.illustail/tinami/\(entry.illust_id)")
 		} else if entry.service_name == "Danbooru" && entry.other_info != nil {
-			if let defaults = NSUserDefaults(suiteName: "group.org.cathand.illustail") {
-				defaults.setObject(entry.other_info, forKey: "danbooru_selected_post")
+			if let defaults = UserDefaults(suiteName: "group.org.cathand.illustail") {
+				defaults.set(entry.other_info, forKey: "danbooru_selected_post")
 				defaults.synchronize()
 				
-				url = NSURL(string: "illustail://org.cathand.illustail/danbooru/\(entry.illust_id)")
+				url = URL(string: "illustail://org.cathand.illustail/danbooru/\(entry.illust_id)")
 			}
 		} else if entry.service_name == "Seiga" {
-			url = NSURL(string: "illustail://org.cathand.illustail/seiga/\(entry.illust_id)")
+			url = URL(string: "illustail://org.cathand.illustail/seiga/\(entry.illust_id)")
 		}
 		
 		if let u = url {
-			self.context?.openURL(u, completionHandler: nil)
+			self.context?.open(u, completionHandler: nil)
 		}
 	}
 }

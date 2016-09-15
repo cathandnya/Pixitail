@@ -10,20 +10,7 @@ import UIKit
 
 class EntriesItemList {
 	
-	class var sharedInstance: EntriesItemList {
-		get {
-			struct Static {
-				static var instance : EntriesItemList? = nil
-				static var token : dispatch_once_t = 0
-			}
-			
-			dispatch_once(&Static.token) {
-				Static.instance = EntriesItemList()
-			}
-			
-			return Static.instance!
-		}
-	}
+	static let sharedInstance = EntriesItemList()
 	
 	var list: [EntriesItem]
 	init() {
@@ -34,12 +21,12 @@ class EntriesItemList {
 		list = []
 		
 		#if PIXITAIL
-		let defaults = NSUserDefaults(suiteName: "group.org.cathand.pixitail")
+		let defaults = UserDefaults(suiteName: "group.org.cathand.pixitail")
 		#else
-		let defaults = NSUserDefaults(suiteName: "group.org.cathand.illustail")
+		let defaults = UserDefaults(suiteName: "group.org.cathand.illustail")
 		#endif
 
-		if let widgets = defaults?.objectForKey("widgets") as? [NSDictionary] {
+		if let widgets = defaults?.object(forKey: "widgets") as? [NSDictionary] {
 			for i in widgets {
 				let item = EntriesItem(info: i)
 				list.append(item)

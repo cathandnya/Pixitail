@@ -102,13 +102,7 @@ static void CHShowAlert(NSString *title, NSString *message) {
 	
 	NSString		*pin = pinField.text;
 	if ([pin length] == 7) {
-		[self actionSheet:nil clickedButtonAtIndex:0];
-		/*
-		UIActionSheet	*alert = [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"PIN is valid?\n %@", nil), pin] delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:@"OK", nil];
-	
-		[alert showInView:self.view];
-		[alert release];
-		 */
+        [delegate oauthViewController:self didEnd:pinField.text];
 	} else {
 		// なんか違うものが入ってる
 		CHShowAlert(@"PIN is invalid length", nil);

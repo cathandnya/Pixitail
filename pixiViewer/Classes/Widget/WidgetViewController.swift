@@ -15,7 +15,7 @@ let sectionHeaderHeight: CGFloat = 16
 
 class WidgetViewController: UITableViewController, NCWidgetProviding {
 
-	private var activityViews = Dictionary<Int, UIActivityIndicatorView>()
+	fileprivate var activityViews = Dictionary<Int, UIActivityIndicatorView>()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,18 +40,18 @@ class WidgetViewController: UITableViewController, NCWidgetProviding {
 		NSLog("deinit")
 	}
 	
-	override func viewWillAppear(animated: Bool) {
+	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		
 		refresh()
 	}
 	
-	override func viewWillDisappear(animated: Bool) {
+	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
 		
 		if let block = handler {
 			NSLog("viewWillDisappear completionHandler")
-			block(.NoData)
+			block(.noData)
 			handler = nil
 		}
 	}
@@ -63,7 +63,7 @@ class WidgetViewController: UITableViewController, NCWidgetProviding {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
 		if EntriesItemList.sharedInstance.count == 0 {
 			return 1
 		} else {
@@ -71,11 +71,11 @@ class WidgetViewController: UITableViewController, NCWidgetProviding {
 		}
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
 	
-	override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		if EntriesItemList.sharedInstance.count == 0 {
 			return 44
 		} else {
@@ -83,7 +83,7 @@ class WidgetViewController: UITableViewController, NCWidgetProviding {
 		}
 	}
 	
-	override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+	override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
 		if EntriesItemList.sharedInstance.count == 0 {
 			return 0
 		} else {
@@ -91,19 +91,19 @@ class WidgetViewController: UITableViewController, NCWidgetProviding {
 		}
 	}
 	
-	override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+	override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		if EntriesItemList.sharedInstance.count == 0 {
 			return nil
 		}
 		
-		let view = UIView(frame: CGRectMake(0, 0, 320, sectionHeaderHeight))
-		view.backgroundColor = UIColor.clearColor()
+		let view = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: sectionHeaderHeight))
+		view.backgroundColor = UIColor.clear
 		
-		let label = UILabel(frame: CGRectMake(5, 0, 310 - 21 - 5, sectionHeaderHeight))
-		label.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
-		label.backgroundColor = UIColor.clearColor()
-		label.font = UIFont.boldSystemFontOfSize(11)
-		label.textColor = UIColor.whiteColor().colorWithAlphaComponent(0.7)
+		let label = UILabel(frame: CGRect(x: 5, y: 0, width: 310 - 21 - 5, height: sectionHeaderHeight))
+		label.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
+		label.backgroundColor = UIColor.clear
+		label.font = UIFont.boldSystemFont(ofSize: 11)
+		label.textColor = UIColor.white.withAlphaComponent(0.7)
 		label.text = EntriesItemList.sharedInstance[section].name
 		view.addSubview(label)
 		
@@ -112,44 +112,44 @@ class WidgetViewController: UITableViewController, NCWidgetProviding {
 			activityView = activity
 			activityView.removeFromSuperview()
 		} else {
-			activityView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.White)
+			activityView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.white)
 			activityView.hidesWhenStopped = true
 			activityView.layer.setValue(0.6, forKeyPath: "transform.scale")
 			activityViews[section] = activityView
 		}
-		activityView.frame = CGRectMake(320 - 21 - 5, -2, 21, 21)
-		activityView.autoresizingMask = UIViewAutoresizing.FlexibleLeftMargin
+		activityView.frame = CGRect(x: 320 - 21 - 5, y: -2, width: 21, height: 21)
+		activityView.autoresizingMask = UIViewAutoresizing.flexibleLeftMargin
 		view.addSubview(activityView)
 		
 		return view
 	}
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		if EntriesItemList.sharedInstance.count == 0 {
-			return tableView.dequeueReusableCellWithIdentifier("no_item", forIndexPath: indexPath) as UITableViewCell
+			return tableView.dequeueReusableCell(withIdentifier: "no_item", for: indexPath) as UITableViewCell
 		} else {
-			let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! WidgetCell
+			let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! WidgetCell
 			
-			cell.selectionStyle = UITableViewCellSelectionStyle.None
-			cell.entries = EntriesItemList.sharedInstance[indexPath.section].entries
+			cell.selectionStyle = UITableViewCellSelectionStyle.none
+			cell.entries = EntriesItemList.sharedInstance[(indexPath as NSIndexPath).section].entries
 			cell.context = self.extensionContext
 			
 			return cell
 		}
     }
 	
-	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-		tableView.deselectRowAtIndexPath(indexPath, animated: true)
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		tableView.deselectRow(at: indexPath, animated: true)
 		
 		if EntriesItemList.sharedInstance.count == 0 {
-			var url: NSURL?
+			var url: URL?
 			#if PIXITAIL
-				url = NSURL(string: "pixitail://org.cathand.pixitail/settings/widget")
+				url = URL(string: "pixitail://org.cathand.pixitail/settings/widget")
 			#else
-				url = NSURL(string: "illustail://org.cathand.illustail/settings/widget")
+				url = URL(string: "illustail://org.cathand.illustail/settings/widget")
 			#endif
 			if let u = url {
-				extensionContext?.openURL(u, completionHandler: nil)
+				extensionContext?.open(u, completionHandler: nil)
 			}
 		}
 	}
@@ -201,9 +201,9 @@ class WidgetViewController: UITableViewController, NCWidgetProviding {
 	
 	func updatePreferredContentSize() {
 		if EntriesItemList.sharedInstance.count == 0 {
-			preferredContentSize = CGSizeMake(0, 44)
+			preferredContentSize = CGSize(width: 0, height: 44)
 		} else {
-			preferredContentSize = CGSizeMake(0, CGFloat(EntriesItemList.sharedInstance.count) * (WidgetCell.heightForWidth(self.view.frame.size.width) + sectionHeaderHeight))
+			preferredContentSize = CGSize(width: 0, height: CGFloat(EntriesItemList.sharedInstance.count) * (WidgetCell.heightForWidth(self.view.frame.size.width) + sectionHeaderHeight))
 		}
 	}
 	
@@ -212,15 +212,15 @@ class WidgetViewController: UITableViewController, NCWidgetProviding {
 		tableView.reloadData()
 	}
 
-	func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets {
-		return UIEdgeInsetsZero
+	func widgetMarginInsets(forProposedMarginInsets defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets {
+		return UIEdgeInsets.zero
 		//marginInsets = defaultMarginInsets
 		//return defaultMarginInsets
 	}
 	
-	private var handler: ((NCUpdateResult) -> Void)?
+	fileprivate var handler: ((NCUpdateResult) -> Void)?
 	
-	func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)) {
+	func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
 		// Perform any setup necessary in order to update the view.
 		
 		// If an error is encountered, use NCUpdateResult.Failed
@@ -229,14 +229,14 @@ class WidgetViewController: UITableViewController, NCWidgetProviding {
 		
 		NSLog("widgetPerformUpdateWithCompletionHandler")
 		
-		completionHandler(.NoData)
+		completionHandler(.noData)
 		//handler = completionHandler
 		
 		refresh()
 	}
 	
-	private var updateResult = NCUpdateResult.NoData
-	private var loaded = true
+	fileprivate var updateResult = NCUpdateResult.noData
+	fileprivate var loaded = true
 	
 	func refreshEnd() {
 		if loaded {
@@ -251,7 +251,7 @@ class WidgetViewController: UITableViewController, NCWidgetProviding {
 		
 		if let block = handler {
 			NSLog("completionHandler")
-			block(.NoData)
+			block(.noData)
 			handler = nil
 		}
 		loaded = true
@@ -261,13 +261,13 @@ class WidgetViewController: UITableViewController, NCWidgetProviding {
 		if !loaded {
 			if let block = handler {
 				NSLog("completionHandler")
-				block(.NoData)
+				block(.noData)
 				handler = nil
 			}
 			return
 		}
 		
-		updateResult = .NoData
+		updateResult = .noData
 		loaded = false
 		
 		if EntriesItemList.sharedInstance.list.count > 0 {
@@ -276,17 +276,17 @@ class WidgetViewController: UITableViewController, NCWidgetProviding {
 				weak var activity = activityViews[section]
 				activity?.startAnimating()
 				
-				dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { [weak self] in
+				DispatchQueue.global().async { [weak self] in
 					if let me = self {
 						let ret = item.entries.refresh()
-						if ret == NCUpdateResult.Failed {
+						if ret == NCUpdateResult.failed {
 							me.updateResult = ret
-						} else if ret == NCUpdateResult.NewData {
+						} else if ret == NCUpdateResult.newData {
 							me.updateResult = ret
 						}
 						item.entries.save()
 						
-						dispatch_async(dispatch_get_main_queue()) {
+						DispatchQueue.main.async {
 							activity?.stopAnimating()
 							
 							if let me = self {
@@ -304,7 +304,7 @@ class WidgetViewController: UITableViewController, NCWidgetProviding {
 		} else {
 			if let block = handler {
 				NSLog("completionHandler")
-				block(.NoData)
+				block(.noData)
 				handler = nil
 			}
 			loaded = true

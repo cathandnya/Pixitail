@@ -968,15 +968,6 @@ static void CHShowAlert(NSString *title, NSString *message) {
     [super touchesBegan:touches withEvent:event];
 }
 
-- (BOOL) authorizeWithURL:(NSURL *)url {
-	OAuthViewController	*oauthController = [[OAuthViewController alloc] initWithNibName:@"OAuthViewController" bundle:nil];
-	oauthController.url = url;
-	[oauthController setDelegate:self];
-	[self.navigationController pushViewController:oauthController animated:YES];
-	[oauthController release];
-	return YES;
-}
-
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
 	//if ([viewController isKindOfClass:[OAuthViewController class]]) {
 	//	[(OAuthViewController *)viewController didShow];

@@ -7,14 +7,13 @@
 //
 
 #import "DefaultViewController.h"
-#import "OAuthViewController.h"
 #import "MultiSelectionViewController.h"
 #import "ActivitySheetViewController.h"
 #import "PasscodeLockViewController.h"
 #import "SkyDrive.h"
 
 
-@interface SettingViewController : DefaultTableViewController<OAuthViewControllerDelegate, UIAlertViewDelegate, MultiSelectionViewControllerDelegate, PasscodeLockViewControllerDelegate, SkyDriveLoginHandler> {
+@interface SettingViewController : DefaultTableViewController<UIAlertViewDelegate, MultiSelectionViewControllerDelegate, PasscodeLockViewControllerDelegate, SkyDriveLoginHandler> {
 	UISwitch *disableSleepSwitch;
 	UISwitch *showClockSwitch;
 	UISwitch *autoRotateSwitch;

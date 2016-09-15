@@ -29,7 +29,7 @@
 
 @class ClockView;
 @class PixAccount;
-@interface PixivSlideshowViewController : DefaultViewController<MatrixParserDelegate, CHHtmlParserConnectionDelegate, UIActionSheetDelegate, SlideshowImageStorageDelegate> {
+@interface PixivSlideshowViewController : DefaultViewController<MatrixParserDelegate, CHHtmlParserConnectionDelegate, UIActionSheetDelegate, SlideshowImageStorageDelegate, CAAnimationDelegate> {
 	UIImageView		*imageView1_;
 	UIImageView		*imageView2_;
 	BOOL			transitioning;

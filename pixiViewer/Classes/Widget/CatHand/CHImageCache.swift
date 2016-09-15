@@ -9,70 +9,60 @@ import Foundation
 
 
 class CHImageCache {
-	class var sharedInstance: CHImageCache {
-	get {
-		struct Static {
-			static var instance : CHImageCache? = nil
-			static var token : dispatch_once_t = 0
-		}
-			
-		dispatch_once(&Static.token) {
-			let path: String = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] as String
-			Static.instance = CHImageCache(path: (path as NSString).stringByAppendingPathComponent("CHImageCache"))
-		}
-			
-		return Static.instance!
-	}
-	}
+
+    static let sharedInstance = { () -> CHImageCache in
+        let path: String = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.cachesDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0] as String
+        return CHImageCache(path: (path as NSString).appendingPathComponent("CHImageCache"))
+    }()
 	
 	init(path: String, cacheSize: UInt64 = 100 * 1000 * 1000) {
 		self.basePath = path;
 		self.cacheSize = cacheSize;
 		self.totalCacheSize = 0;
 		
-		if !NSFileManager.defaultManager().fileExistsAtPath(self.basePath) {
+		if !FileManager.default.fileExists(atPath: self.basePath) {
 			do {
-				try NSFileManager.defaultManager().createDirectoryAtPath(self.basePath, withIntermediateDirectories:true, attributes: nil)
+				try FileManager.default.createDirectory(atPath: self.basePath, withIntermediateDirectories:true, attributes: nil)
 			} catch _ {
 			}
 		}
 		
-		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+		DispatchQueue.global().async {
 			self.calculateCacheSizeAndFillUsageMap()
 		}
 	}
 	
-	class func keyForURL(url: NSURL) -> String {
+	class func keyForURL(_ url: URL) -> String {
 		return "\(url.absoluteString.hash)"
 	}
 	
-	func contains(key: String) -> Bool {
+	func contains(_ key: String) -> Bool {
 		let path = pathForKey(key)
-		return NSFileManager.defaultManager().fileExistsAtPath(path)
+		return FileManager.default.fileExists(atPath: path)
 	}
 	
-	func data(key: String) -> NSData? {
+	func data(_ key: String) -> Data? {
 		let path = pathForKey(key)
-		let data = NSData(contentsOfFile: path)
+		let data = try? Data(contentsOf: URL(fileURLWithPath: path))
 		if var info = filesDic[path] {
-			info.date = NSDate()
+			info.date = Date()
 		}
 		return data
 	}
 	
-	func setData(data: NSData, key: String) -> Bool {
+	func setData(_ data: Data, key: String) -> Bool {
 		let path = pathForKey(key)
-		let b = data.writeToFile(path, atomically: true)
+		let b = (try? data.write(to: URL(fileURLWithPath: path), options: [.atomic])) != nil
 		if !b {
 			return false
 		} else {
-			let len: UInt64 = UInt64(data.length)
-			filesDic[path] = FileInfo(size: len, date: NSDate(), path: path)
+			let len: UInt64 = UInt64(data.count)
+			filesDic[path] = FileInfo(size: len, date: Date(), path: path)
 			self.totalCacheSize += len;
 			
 			if self.totalCacheSize > self.cacheSize {
 				var mary = Array(self.filesDic.values)
-				mary.sortInPlace {
+				mary.sort {
 					(obj1 : FileInfo, obj2 : FileInfo) -> Bool in
 					return obj1.date.timeIntervalSinceReferenceDate < obj2.date.timeIntervalSinceReferenceDate
 				}
@@ -80,10 +70,10 @@ class CHImageCache {
 				while self.totalCacheSize > self.cacheSize {
 					let obj = mary[0]
 					do {
-						try NSFileManager.defaultManager().removeItemAtPath(obj.path)
+						try FileManager.default.removeItem(atPath: obj.path)
 						self.totalCacheSize -= obj.size
-						self.filesDic.removeValueForKey(obj.path)
-						mary.removeAtIndex(0)
+						self.filesDic.removeValue(forKey: obj.path)
+						mary.remove(at: 0)
 					} catch _ {
 						break;
 					}
@@ -93,11 +83,11 @@ class CHImageCache {
 		}
 	}
 	
-	func removeData(key: String) {
+	func removeData(_ key: String) {
 		let path = pathForKey(key)
-		if NSFileManager.defaultManager().fileExistsAtPath(path) {
+		if FileManager.default.fileExists(atPath: path) {
 			do {
-				try NSFileManager.defaultManager().removeItemAtPath(path)
+				try FileManager.default.removeItem(atPath: path)
 			} catch _ {
 			}
 		}
@@ -105,7 +95,7 @@ class CHImageCache {
 	
 	func removeAll() {
 		do {
-			try NSFileManager.defaultManager().removeItemAtPath(self.basePath)
+			try FileManager.default.removeItem(atPath: self.basePath)
 		} catch _ {
 		}
 	}
@@ -119,12 +109,12 @@ class CHImageCache {
 	
 	struct FileInfo {
 		var size: UInt64
-		var date: NSDate
+		var date: Date
 		var path: String
 	}
 	
-	func pathForKey(key: String) -> String {
-		return (self.basePath as NSString).stringByAppendingPathComponent(key)
+	func pathForKey(_ key: String) -> String {
+		return (self.basePath as NSString).appendingPathComponent(key)
 	}
 	
 	func calculateCacheSizeAndFillUsageMap() {
@@ -132,26 +122,25 @@ class CHImageCache {
 		
 		var mary = Array<FileInfo>()
         do {
-            let contents = try NSFileManager.defaultManager().contentsOfDirectoryAtPath(basePath);
+            let contents = try FileManager.default.contentsOfDirectory(atPath: basePath);
             for name in contents {
-                if let path = NSURL(fileURLWithPath: basePath).URLByAppendingPathComponent(name).path {
-                    do {
-                        let a = try NSFileManager.defaultManager().attributesOfItemAtPath(path)
-                        let size = (a[NSFileSize] as! NSNumber).unsignedLongLongValue
-                        let date = a[NSFileModificationDate] as! NSDate?
-                        if let d = date {
-                            let info = FileInfo(size: size, date: d, path: path)
-                            mary.append(info)
-                            total += size;
-                        }
-                    } catch {
+                let path = URL(fileURLWithPath: basePath).appendingPathComponent(name).path
+                do {
+                    let a = try FileManager.default.attributesOfItem(atPath: path)
+                    let size = (a[FileAttributeKey.size] as! NSNumber).uint64Value
+                    let date = a[FileAttributeKey.modificationDate] as! Date?
+                    if let d = date {
+                        let info = FileInfo(size: size, date: d, path: path)
+                        mary.append(info)
+                        total += size;
                     }
+                } catch {
                 }
             }
         } catch {
         }
         
-		mary.sortInPlace {
+		mary.sort {
 			(obj1 : FileInfo, obj2 : FileInfo) -> Bool in
 			return obj1.date.timeIntervalSinceReferenceDate < obj2.date.timeIntervalSinceReferenceDate
 		}
@@ -160,16 +149,16 @@ class CHImageCache {
 		while total > self.cacheSize {
 			let obj = mary[0]
 			do {
-				try NSFileManager.defaultManager().removeItemAtPath(obj.path)
+				try FileManager.default.removeItem(atPath: obj.path)
 				total -= obj.size
-				mary.removeAtIndex(0);
+				mary.remove(at: 0);
 			} catch _ {
 				// 削除失敗
 				break
 			}
 		}
 	
-		dispatch_async(dispatch_get_main_queue()) {
+		DispatchQueue.main.async {
 			for obj in mary {
 				self.filesDic[obj.path] = obj;
 			}

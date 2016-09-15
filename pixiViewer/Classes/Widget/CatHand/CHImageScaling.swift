@@ -9,14 +9,14 @@ import UIKit
 
 
 extension UIImage {
-	func scale(maxResolution: CGFloat, orientation: UIImageOrientation) -> UIImage {
+	func scale(_ maxResolution: CGFloat, orientation: UIImageOrientation) -> UIImage {
 		let image = self
-		let imgRef = image.CGImage
-		let width = CGFloat(CGImageGetWidth(imgRef))
-		let height = CGFloat(CGImageGetHeight(imgRef))
+		let imgRef = image.cgImage
+		let width = CGFloat((imgRef?.width)!)
+		let height = CGFloat((imgRef?.height)!)
 		
-		var transform = CGAffineTransformIdentity;
-		var bounds = CGRectMake(0, 0, width, height)
+		var transform = CGAffineTransform.identity;
+		var bounds = CGRect(x: 0, y: 0, width: width, height: height)
 		if (width > maxResolution || height > maxResolution) {
 			let ratio = width / height
 			if (ratio > 1) {
@@ -29,76 +29,76 @@ extension UIImage {
 		}
 		
 		let scaleRatio = bounds.size.width / width
-		let imageSize = CGSizeMake(width, height)
+		let imageSize = CGSize(width: width, height: height)
 		var boundHeight: CGFloat
 		
 		switch(orientation) {
-		case UIImageOrientation.Up:
-			transform = CGAffineTransformIdentity;
+		case UIImageOrientation.up:
+			transform = CGAffineTransform.identity;
 			break;
-		case UIImageOrientation.UpMirrored:
-			transform = CGAffineTransformMakeTranslation(imageSize.width, 0.0);
-			transform = CGAffineTransformScale(transform, -1.0, 1.0);
+		case UIImageOrientation.upMirrored:
+			transform = CGAffineTransform(translationX: imageSize.width, y: 0.0);
+			transform = transform.scaledBy(x: -1.0, y: 1.0);
 			break;
-		case UIImageOrientation.Down:
-			transform = CGAffineTransformMakeTranslation(imageSize.width, imageSize.height);
-			transform = CGAffineTransformRotate(transform, CGFloat(M_PI));
+		case UIImageOrientation.down:
+			transform = CGAffineTransform(translationX: imageSize.width, y: imageSize.height);
+			transform = transform.rotated(by: CGFloat(M_PI));
 			break;
-		case UIImageOrientation.DownMirrored:
-			transform = CGAffineTransformMakeTranslation(0.0, imageSize.height);
-			transform = CGAffineTransformScale(transform, 1.0, -1.0);
+		case UIImageOrientation.downMirrored:
+			transform = CGAffineTransform(translationX: 0.0, y: imageSize.height);
+			transform = transform.scaledBy(x: 1.0, y: -1.0);
 			break;
-		case UIImageOrientation.LeftMirrored:
+		case UIImageOrientation.leftMirrored:
 			boundHeight = bounds.size.height;
 			bounds.size.height = bounds.size.width;
 			bounds.size.width = boundHeight;
-			transform = CGAffineTransformMakeTranslation(imageSize.height, imageSize.width);
-			transform = CGAffineTransformScale(transform, -1.0, 1.0);
-			transform = CGAffineTransformRotate(transform, 3.0 * CGFloat(M_PI) / 2.0);
+			transform = CGAffineTransform(translationX: imageSize.height, y: imageSize.width);
+			transform = transform.scaledBy(x: -1.0, y: 1.0);
+			transform = transform.rotated(by: 3.0 * CGFloat(M_PI) / 2.0);
 			break;
-		case UIImageOrientation.Left:
+		case UIImageOrientation.left:
 			boundHeight = bounds.size.height;
 			bounds.size.height = bounds.size.width;
 			bounds.size.width = boundHeight;
-			transform = CGAffineTransformMakeTranslation(0.0, imageSize.width);
-			transform = CGAffineTransformRotate(transform, 3.0 * CGFloat(M_PI) / 2.0);
+			transform = CGAffineTransform(translationX: 0.0, y: imageSize.width);
+			transform = transform.rotated(by: 3.0 * CGFloat(M_PI) / 2.0);
 			break;
-		case UIImageOrientation.RightMirrored:
+		case UIImageOrientation.rightMirrored:
 			boundHeight = bounds.size.height;
 			bounds.size.height = bounds.size.width;
 			bounds.size.width = boundHeight;
-			transform = CGAffineTransformMakeScale(-1.0, 1.0);
-			transform = CGAffineTransformRotate(transform, CGFloat(M_PI) / 2.0);
+			transform = CGAffineTransform(scaleX: -1.0, y: 1.0);
+			transform = transform.rotated(by: CGFloat(M_PI) / 2.0);
 			break;
-		case UIImageOrientation.Right:
+		case UIImageOrientation.right:
 			boundHeight = bounds.size.height;
 			bounds.size.height = bounds.size.width;
 			bounds.size.width = boundHeight;
-			transform = CGAffineTransformMakeTranslation(imageSize.height, 0.0);
-			transform = CGAffineTransformRotate(transform, CGFloat(M_PI) / 2.0);
+			transform = CGAffineTransform(translationX: imageSize.height, y: 0.0);
+			transform = transform.rotated(by: CGFloat(M_PI) / 2.0);
 			break;
 		}
 		
 		UIGraphicsBeginImageContext(bounds.size);
 		let context = UIGraphicsGetCurrentContext();
-		CGContextSaveGState(context);
-		if (orientation == UIImageOrientation.Right || orientation == UIImageOrientation.Left) {
-			CGContextScaleCTM(context, -scaleRatio, scaleRatio);
-			CGContextTranslateCTM(context, -height, 0);
+		context?.saveGState();
+		if (orientation == UIImageOrientation.right || orientation == UIImageOrientation.left) {
+			context?.scaleBy(x: -scaleRatio, y: scaleRatio);
+			context?.translateBy(x: -height, y: 0);
 		} else {
-			CGContextScaleCTM(context, scaleRatio, -scaleRatio);
-			CGContextTranslateCTM(context, 0, -height);
+			context?.scaleBy(x: scaleRatio, y: -scaleRatio);
+			context?.translateBy(x: 0, y: -height);
 		}
-		CGContextConcatCTM(context, transform);
-		CGContextDrawImage(context, CGRectMake(0, 0, width, height), imgRef);
+		context?.concatenate(transform);
+		context?.draw(imgRef!, in: CGRect(x: 0, y: 0, width: width, height: height));
 		let imageCopy = UIGraphicsGetImageFromCurrentImageContext();
-		CGContextRestoreGState(context);
+		context?.restoreGState();
 		UIGraphicsEndImageContext();
 		
-		return imageCopy
+		return imageCopy!
 	}
 	
-	func scale(maxResolution: CGFloat) -> UIImage {
+	func scale(_ maxResolution: CGFloat) -> UIImage {
 		return scale(maxResolution, orientation: self.imageOrientation)
 	}
 }

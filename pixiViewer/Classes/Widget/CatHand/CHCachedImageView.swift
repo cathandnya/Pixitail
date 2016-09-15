@@ -9,10 +9,10 @@ import UIKit
 
 
 class CHCachedImageView : UIImageView {
-	var errorHandler: ((error: NSError?) -> Void)? = nil
+    var errorHandler: ((_ error: NSError?) -> Void)? = nil
 	var referer: String?
 	
-	var url: NSURL? {
+	var url: URL? {
 		didSet {
 			if let u = url {
 				let str = CHImageCache.keyForURL(u)
@@ -32,22 +32,22 @@ class CHCachedImageView : UIImageView {
 						}
 					} else {
 						// load
-						let req = NSMutableURLRequest(URL: u)
+						var req = URLRequest(url: u)
 						if let r = referer {
 							req.addValue(r, forHTTPHeaderField: "Referer")
 						}
 						
-						NSURLConnection.sendAsynchronousRequest(req, queue: NSOperationQueue.mainQueue()) {[weak self] (res: NSURLResponse?, data: NSData?, err: NSError?) -> Void in
+						NSURLConnection.sendAsynchronousRequest(req, queue: OperationQueue.main) {[weak self] (res: URLResponse?, data: Data?, err: Error?) -> Void in
 							if let me = self {
 								if (me.key == nil || me.key == str) {
 									if let e = err {
-										me.failed(e)
+										me.failed(err: e as NSError)
 									} else {
-										if let d: NSData = data {
-											let img: UIImage? = UIImage(data: d)
+										if let d = data {
+											let img = UIImage(data: d)
 											if let i = img {
 												me.image = i
-												CHImageCache.sharedInstance.setData(d, key: str)
+												let _ = CHImageCache.sharedInstance.setData(d, key: str)
 											} else {
 												me.failed()
 											}
@@ -74,7 +74,7 @@ class CHCachedImageView : UIImageView {
 		self.image = nil
 		
 		if let handler = errorHandler {
-			handler(error: err)
+			handler(err)
 		}
 	}
 	

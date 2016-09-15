@@ -9,38 +9,26 @@ import UIKit
 
 
 class CHSharedAlertView {
-	var isPresent = false
+
+    var isPresent = false
 	
-	class var sharedInstance: CHSharedAlertView {
-		get {
-			struct Static {
-				static var instance : CHSharedAlertView? = nil
-				static var token : dispatch_once_t = 0
-			}
-			
-			dispatch_once(&Static.token) {
-				Static.instance = CHSharedAlertView()
-			}
-			
-			return Static.instance!
-		}
-	}
+	static var sharedInstance = CHSharedAlertView()
 	
-	class func show(title: String?, message: String?, fromViewController: UIViewController?) {
+	class func show(_ title: String?, message: String?, fromViewController: UIViewController?) {
 		let obj = CHSharedAlertView.sharedInstance
 		if !obj.isPresent {
 			if let vc = fromViewController {
-				let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-				alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: UIAlertActionStyle.Default, handler: {(action: UIAlertAction) in
+				let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+				alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: UIAlertActionStyle.default, handler: {(action: UIAlertAction) in
 					obj.isPresent = false;
 					}))
-				vc.presentViewController(alert, animated: true, completion: nil)
+				vc.present(alert, animated: true, completion: nil)
 				obj.isPresent = true;
 			}
 		}
 	}
 	
-	class func show(title: String?, error: NSError?, fromViewController: UIViewController?) {
+	class func show(_ title: String?, error: NSError?, fromViewController: UIViewController?) {
 		show(title, message: error?.localizedDescription, fromViewController: fromViewController)
 	}
 }

@@ -28,7 +28,7 @@ class EntriesItem {
 		let serviceName = info["service"] as! String;
 		let username = info["username"] as! String;
 		var password = info["password"] as! String;
-		password = password.decryptedString()
+		password = password.decrypted()
 		entries.service = Service(name: serviceName, username: username, password: password)
 	}
 }
