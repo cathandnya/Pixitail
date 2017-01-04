@@ -15,7 +15,7 @@
 #import "PixitailConstants.h"
 #import "RegexKitLite.h"
 #import "NSData+Crypto.h"
-
+#import "HTMLParser.h"
 
 @implementation Pixiv
 
@@ -427,39 +427,54 @@
 		
 		DLog(@"logout finished");
 		
-		// login
-		NSString *url = [[PixitailConstants sharedInstance] valueForKeyPath:@"urls.login"];
-		NSMutableURLRequest		*req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
-		NSString				*body;
-		[req autorelease];
-	
-		if ([self.username length] == 0 || [self.password length] == 0) {
-			[[NSNotificationCenter defaultCenter] postNotificationName:@"NetworkActivityIndicatorEndNotification" object:nil];
-
-			[loginHandler_ pixService:self loginFinished:-1];
-			return;
-		} else {
-            NSString *fmt = [[PixitailConstants sharedInstance] valueForKeyPath:@"constants.login_body_format"];
-			body = [NSString stringWithFormat:fmt, encodeURIComponent(self.username), encodeURIComponent(self.password)];
-		}
-	
-		if ([[Reachability reachabilityWithHostName:@"www.pixiv.net"] currentReachabilityStatus] == 0) {
-			// 接続不可
-			[[NSNotificationCenter defaultCenter] postNotificationName:@"NetworkActivityIndicatorEndNotification" object:nil];
-
-			[loginHandler_ pixService:self loginFinished:-2];
-			return;
-		}
-	
-		[req setHTTPMethod:@"POST"];
-		[req setHTTPBody:[body dataUsingEncoding:NSASCIIStringEncoding]];
-		
-		loginRet_ = [[NSMutableData alloc] init];
-		
-		loginConnection_ = [[NSURLConnection alloc] initWithRequest:req delegate:self];
-		[loginConnection_ start];
-		
-		DLog(@"login started");
+        if ([[Reachability reachabilityWithHostName:@"www.pixiv.net"] currentReachabilityStatus] == 0) {
+            // 接続不可
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"NetworkActivityIndicatorEndNotification" object:nil];
+            
+            [loginHandler_ pixService:self loginFinished:-2];
+            return;
+        }
+        if ([self.username length] == 0 || [self.password length] == 0) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"NetworkActivityIndicatorEndNotification" object:nil];
+            
+            [loginHandler_ pixService:self loginFinished:-1];
+            return;
+        }
+        
+        // login
+        
+        [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://accounts.pixiv.net/login?lang=ja&source=pc&view_type=page&ref=wwwtop_accounts_index"]] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
+            if (data) {
+                NSError *err = nil;
+                HTMLParser *parser = [[HTMLParser alloc] initWithData:data error:&err];
+                HTMLNode *body = [parser body];
+                if (body) {
+                    HTMLNode *div = [body findChildWithAttribute:@"id" matchingName:@"old-login" allowPartial:NO];
+                    HTMLNode *form = [div findChildTag:@"form"];
+                    NSString *action = [form getAttributeNamed:@"action"];
+                    
+                    NSMutableString *mstr = [NSMutableString string];
+                    for (HTMLNode *n in [form findChildrenWithAttribute:@"type" matchingName:@"hidden" allowPartial:NO]) {
+                        [mstr appendString:[NSString stringWithFormat:@"%@=%@&", [n getAttributeNamed:@"name"], [n getAttributeNamed:@"value"]]];
+                    }
+                    [mstr appendString:[NSString stringWithFormat:@"pixiv_id=%@&password=%@", encodeURIComponent(self.username), encodeURIComponent(self.password)]];
+                    
+                    NSString *url = [@"https://accounts.pixiv.net" stringByAppendingString:action];
+                    NSMutableURLRequest	*req = [[[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]] autorelease];
+                    [req setHTTPMethod:@"POST"];
+                    [req setHTTPBody:[mstr dataUsingEncoding:NSASCIIStringEncoding]];
+                    
+                    loginRet_ = [[NSMutableData alloc] init];
+                    loginConnection_ = [[NSURLConnection alloc] initWithRequest:req delegate:self];
+                    [loginConnection_ start];
+                    DLog(@"login started");
+                    return;
+                }
+            }
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"NetworkActivityIndicatorEndNotification" object:nil];
+            [loginHandler_ pixService:self loginFinished:-1];
+        }];
 	} else if (con == loginConnection_) {
 		[loginConnection_ release];
 		loginConnection_ = nil;

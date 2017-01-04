@@ -655,6 +655,18 @@
 		0E7E738311B7D8D50075BB74 /* up.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E44F0D6106DF4F900BE388B /* up.png */; };
 		0E813CCA17E0ABD3009224FE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0E813CC817E0ABD3009224FE /* Localizable.strings */; };
 		0E813CCB17E0ABD3009224FE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0E813CC817E0ABD3009224FE /* Localizable.strings */; };
+		0E83657C1E1C899A00597B1E /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E8365781E1C899A00597B1E /* HTMLNode.m */; };
+		0E83657D1E1C899A00597B1E /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E8365781E1C899A00597B1E /* HTMLNode.m */; };
+		0E83657E1E1C899A00597B1E /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E8365781E1C899A00597B1E /* HTMLNode.m */; };
+		0E83657F1E1C899A00597B1E /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E8365781E1C899A00597B1E /* HTMLNode.m */; };
+		0E8365801E1C899A00597B1E /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E83657A1E1C899A00597B1E /* HTMLParser.m */; };
+		0E8365811E1C899A00597B1E /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E83657A1E1C899A00597B1E /* HTMLParser.m */; };
+		0E8365821E1C899A00597B1E /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E83657A1E1C899A00597B1E /* HTMLParser.m */; };
+		0E8365831E1C899A00597B1E /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E83657A1E1C899A00597B1E /* HTMLParser.m */; };
+		0E8365841E1C899A00597B1E /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 0E83657B1E1C899A00597B1E /* README.md */; };
+		0E8365851E1C899A00597B1E /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 0E83657B1E1C899A00597B1E /* README.md */; };
+		0E8365861E1C899A00597B1E /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 0E83657B1E1C899A00597B1E /* README.md */; };
+		0E8365871E1C899A00597B1E /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 0E83657B1E1C899A00597B1E /* README.md */; };
 		0E8672BF117DCE8400B4246C /* library.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 0E8672BE117DCE8400B4246C /* library.xcdatamodel */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0E8672E8117DD88600B4246C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E8672E7117DD88600B4246C /* CoreData.framework */; };
 		0E8675631182B5CD00B4246C /* OAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E8675621182B5CD00B4246C /* OAuthViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -1559,6 +1571,11 @@
 		0E7E718E11B7D4980075BB74 /* Pixitail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pixitail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E7E719011B7D4990075BB74 /* Pixitail-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pixitail-Info.plist"; sourceTree = "<group>"; };
 		0E813CC917E0ABD3009224FE /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0E8365771E1C899A00597B1E /* HTMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLNode.h; sourceTree = "<group>"; };
+		0E8365781E1C899A00597B1E /* HTMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLNode.m; sourceTree = "<group>"; };
+		0E8365791E1C899A00597B1E /* HTMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLParser.h; sourceTree = "<group>"; };
+		0E83657A1E1C899A00597B1E /* HTMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLParser.m; sourceTree = "<group>"; };
+		0E83657B1E1C899A00597B1E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0E8672BE117DCE8400B4246C /* library.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = library.xcdatamodel; sourceTree = "<group>"; };
 		0E8672E7117DD88600B4246C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		0E8675611182B5CD00B4246C /* OAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthViewController.h; sourceTree = "<group>"; };
@@ -2895,6 +2912,18 @@
 			path = TumblrUploader;
 			sourceTree = "<group>";
 		};
+		0E8365761E1C899A00597B1E /* Objective-C-HMTL-Parser */ = {
+			isa = PBXGroup;
+			children = (
+				0E8365771E1C899A00597B1E /* HTMLNode.h */,
+				0E8365781E1C899A00597B1E /* HTMLNode.m */,
+				0E8365791E1C899A00597B1E /* HTMLParser.h */,
+				0E83657A1E1C899A00597B1E /* HTMLParser.m */,
+				0E83657B1E1C899A00597B1E /* README.md */,
+			);
+			path = "Objective-C-HMTL-Parser";
+			sourceTree = "<group>";
+		};
 		0E8672BD117DCE5900B4246C /* db */ = {
 			isa = PBXGroup;
 			children = (
@@ -3133,6 +3162,7 @@
 				0E481BF415E36FF900039FB3 /* Dropbox */,
 				0ED5812019ECB47200701F70 /* CHTumbletailActivity */,
 				0EE8A9DE1961867400B19BF7 /* unzip */,
+				0E8365761E1C899A00597B1E /* Objective-C-HMTL-Parser */,
 				0ECE2D9019C28E9E0009413A /* OAuthConsumer */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -3902,6 +3932,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E83657F1E1C899A00597B1E /* HTMLNode.m in Sources */,
+				0E8365831E1C899A00597B1E /* HTMLParser.m in Sources */,
 				0E1D46A619EF5358003769D8 /* SeigaMatrixParser.m in Sources */,
 				0E1D46A319EF520C003769D8 /* CHJsonParser.m in Sources */,
 				0E1D469D19EF509B003769D8 /* TinamiMatrixParser.m in Sources */,
@@ -3928,6 +3960,7 @@
 				0E2F272619ECD082001349C2 /* CHImageCache.swift in Sources */,
 				0E1D469619EF4D6E003769D8 /* DanbooruService.m in Sources */,
 				0E2F271419ECCDA3001349C2 /* ConstantsManager.m in Sources */,
+				0E8365871E1C899A00597B1E /* README.md in Sources */,
 				0E1D469A19EF4DA5003769D8 /* SeigaService.m in Sources */,
 				0E2F271319ECCD98001349C2 /* PixitailConstants.m in Sources */,
 				0E1D468E19EF4B49003769D8 /* TinamiService.m in Sources */,
@@ -4176,6 +4209,7 @@
 				0E481C6A15E36FF900039FB3 /* DBSession.m in Sources */,
 				0E481C6C15E36FF900039FB3 /* DBJSON.m in Sources */,
 				0E481C6E15E36FF900039FB3 /* DBJsonBase.m in Sources */,
+				0E83657D1E1C899A00597B1E /* HTMLNode.m in Sources */,
 				0E481C7015E36FF900039FB3 /* DBJsonParser.m in Sources */,
 				0E7BBB3F1D65DC3000621108 /* NSString+URLEncode.m in Sources */,
 				0E481C7215E36FF900039FB3 /* DBJsonWriter.m in Sources */,
@@ -4201,10 +4235,12 @@
 				0ECE2DB719C28E9E0009413A /* OAAsynchronousDataFetcher.m in Sources */,
 				0E481C9415E36FF900039FB3 /* NSURLResponse+Encoding.m in Sources */,
 				0E481C9615E36FF900039FB3 /* NSDictionary+Dropbox.m in Sources */,
+				0E8365851E1C899A00597B1E /* README.md in Sources */,
 				0E481C9815E36FF900039FB3 /* NSString+Dropbox.m in Sources */,
 				0E481C9A15E36FF900039FB3 /* UIAlertView+Dropbox.m in Sources */,
 				0E3AC36F15F74E6000BF7816 /* AccountViewControllerBase.m in Sources */,
 				0E3AC37115F74E6000BF7816 /* Blog.m in Sources */,
+				0E8365811E1C899A00597B1E /* HTMLParser.m in Sources */,
 				0E3AC37315F74E6000BF7816 /* JsonObject.m in Sources */,
 				0E3AC37515F74E6000BF7816 /* LoginUserBlog.m in Sources */,
 				0E7BBB3D1D65DC3000621108 /* NSData+URLEncode.m in Sources */,
@@ -4239,6 +4275,7 @@
 				0E8CD97919EEA28F003DEF2A /* CHHtmlParser.m in Sources */,
 				0E8CD97A19EEA28F003DEF2A /* CHHtmlParserConnection.m in Sources */,
 				0E8CD96519EEA201003DEF2A /* WidgetViewController.swift in Sources */,
+				0E8365861E1C899A00597B1E /* README.md in Sources */,
 				0E8CD96619EEA201003DEF2A /* WidgetCell.swift in Sources */,
 				0E8CD96719EEA201003DEF2A /* EntriesItemList.swift in Sources */,
 				0E8CD96819EEA201003DEF2A /* EntriesItem.swift in Sources */,
@@ -4248,10 +4285,12 @@
 				0E8CD97019EEA201003DEF2A /* PixivService.m in Sources */,
 				0E8CD97219EEA201003DEF2A /* RoundedRectView.m in Sources */,
 				0E1D469519EF4D6E003769D8 /* DanbooruService.m in Sources */,
+				0E83657E1E1C899A00597B1E /* HTMLNode.m in Sources */,
 				0E8CD97319EEA20A003DEF2A /* CHCachedImageView.swift in Sources */,
 				0E1D469919EF4DA5003769D8 /* SeigaService.m in Sources */,
 				0E8CD97419EEA20A003DEF2A /* CHImageCache.swift in Sources */,
 				0E1D468D19EF4B49003769D8 /* TinamiService.m in Sources */,
+				0E8365821E1C899A00597B1E /* HTMLParser.m in Sources */,
 				0E8CD97519EEA20A003DEF2A /* CHImageScaling.swift in Sources */,
 				0E8CD97619EEA20A003DEF2A /* CHSharedAlertView.swift in Sources */,
 			);
@@ -4331,6 +4370,7 @@
 				0E7BBB3E1D65DC3000621108 /* NSString+URLEncode.m in Sources */,
 				0E175E57113537B80051D9CF /* TinamiMatrixParser.m in Sources */,
 				0E175E62113541C40051D9CF /* TinamiMatrixViewController.m in Sources */,
+				0E8365841E1C899A00597B1E /* README.md in Sources */,
 				0E175ED1113546E20051D9CF /* TinamiContentParser.m in Sources */,
 				0E175EDA1135492D0051D9CF /* TinamiMediumViewController.m in Sources */,
 				0E175F2B11354FA30051D9CF /* TinamiCommentParser.m in Sources */,
@@ -4460,6 +4500,7 @@
 				0E58AD8015B00D0600658358 /* JsonParser.m in Sources */,
 				0E58AD8215B00D0600658358 /* JsonWriter.m in Sources */,
 				0E58AD8415B00D0600658358 /* LiveApiHelper.m in Sources */,
+				0E8365801E1C899A00597B1E /* HTMLParser.m in Sources */,
 				0E58AD8615B00D0600658358 /* LiveAuthHelper.m in Sources */,
 				0E58AD8815B00D0600658358 /* LiveConnectionHelper.m in Sources */,
 				0E36E1D317EEB4AC00CD92A0 /* WebViewController.m in Sources */,
@@ -4497,6 +4538,7 @@
 				0E6140DC15BA540700543E33 /* EDAMLimits.m in Sources */,
 				0E6140DE15BA540700543E33 /* EDAMNoteStore.m in Sources */,
 				0E6140E015BA540700543E33 /* EDAMTypes.m in Sources */,
+				0E83657C1E1C899A00597B1E /* HTMLNode.m in Sources */,
 				0E6140E215BA540700543E33 /* EDAMUserStore.m in Sources */,
 				0EABC2F419ED39D5000ABC24 /* WidgetSettingViewController.m in Sources */,
 				0E6140E415BA540700543E33 /* EvernoteNoteStore.m in Sources */,
