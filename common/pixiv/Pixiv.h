@@ -12,8 +12,6 @@
 @interface Pixiv : PixService {
 }
 
-@property(readwrite, nonatomic, retain) NSString *tt;
-
 + (Pixiv *) sharedInstance;
 
 @end

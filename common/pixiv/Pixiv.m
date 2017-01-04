@@ -19,8 +19,6 @@
 
 @implementation Pixiv
 
-@synthesize tt;
-
 + (BOOL) useAPI {
 	return NO;
 }
@@ -49,7 +47,6 @@
 }
 
 - (void) dealloc {
-	self.tt = nil;
 	[super dealloc];
 }
 
@@ -449,18 +446,21 @@
                 HTMLParser *parser = [[HTMLParser alloc] initWithData:data error:&err];
                 HTMLNode *body = [parser body];
                 if (body) {
-                    HTMLNode *div = [body findChildWithAttribute:@"id" matchingName:@"old-login" allowPartial:NO];
-                    HTMLNode *form = [div findChildTag:@"form"];
-                    NSString *action = [form getAttributeNamed:@"action"];
+                    NSString *configStr = [[body findChildWithAttribute:@"id" matchingName:@"init-config" allowPartial:NO] getAttributeNamed:@"value"];
+                    configStr = [configStr stringByReplacingOccurrencesOfString:@"&quot;" withString:@"\""];
+                    NSDictionary *config = [NSJSONSerialization JSONObjectWithData:[configStr dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
                     
                     NSMutableString *mstr = [NSMutableString string];
-                    for (HTMLNode *n in [form findChildrenWithAttribute:@"type" matchingName:@"hidden" allowPartial:NO]) {
-                        [mstr appendString:[NSString stringWithFormat:@"%@=%@&", [n getAttributeNamed:@"name"], [n getAttributeNamed:@"value"]]];
-                    }
+                    [mstr appendFormat:@"post_key=%@&", encodeURIComponent(config[@"pixivAccount.postKey"])];
+                    [mstr appendFormat:@"source=%@&", encodeURIComponent(config[@"pixivAccount.source"])];
+                    [mstr appendFormat:@"ref=%@&", encodeURIComponent(config[@"pixivAccount.ref"])];
+                    [mstr appendFormat:@"return_to=%@&", encodeURIComponent(config[@"pixivAccount.returnTo"])];
+                    
                     [mstr appendString:[NSString stringWithFormat:@"pixiv_id=%@&password=%@", encodeURIComponent(self.username), encodeURIComponent(self.password)]];
                     
-                    NSString *url = [@"https://accounts.pixiv.net" stringByAppendingString:action];
+                    NSString *url = [@"https://accounts.pixiv.net/api/login?lang=" stringByAppendingString:config[@"pixivAccount.lang"]];
                     NSMutableURLRequest	*req = [[[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]] autorelease];
+                    [req setValue:@"Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_3; ja-jp) AppleWebKit/533.16 (KHTML, like Gecko) Version/5.0 Safari/533.16" forHTTPHeaderField:@"User-Agent"];
                     [req setHTTPMethod:@"POST"];
                     [req setHTTPBody:[mstr dataUsingEncoding:NSASCIIStringEncoding]];
                     
@@ -481,35 +481,23 @@
 
 		DLog(@"login finished");
 	
-		NSString	*retstr = loginRet_ ? [[[NSString alloc] initWithData:loginRet_ encoding:NSUTF8StringEncoding] autorelease] : nil;
-		DLog(@"login: %@", retstr);
+        NSDictionary *ret = [NSJSONSerialization JSONObjectWithData:loginRet_ options:0 error:nil];
+        DLog(@"login: %@", [[[NSString alloc] initWithData:loginRet_ encoding:NSUTF8StringEncoding] autorelease]);
 		[loginRet_ release];
 		loginRet_ = nil;
 	
-		NSRange	range = {-1, 0};
-		if (retstr) range = [retstr rangeOfString:@"action=\"/login.php\""];
-		if (range.location != NSNotFound && range.length > 0) {
+		if ([ret[@"error"] boolValue]) {
 			// ログイン失敗
 			[[NSNotificationCenter defaultCenter] postNotificationName:@"NetworkActivityIndicatorEndNotification" object:nil];
 			[loginHandler_ pixService:self loginFinished:-1];
 			return;
 		} else {
-			NSString *regex = [[PixitailConstants sharedInstance] valueForKeyPath:@"constants.tt_regex"];
-			NSArray *ary = [retstr captureComponentsMatchedByRegex:regex];
-			if (ary.count > 1) {
-				self.tt = [ary objectAtIndex:1];
-				
-				logined = YES;
-				[[StatusMessageViewController sharedInstance] showMessage:@"ログインしました"];
-				
-				[[NSNotificationCenter defaultCenter] postNotificationName:@"NetworkActivityIndicatorEndNotification" object:nil];
-				[loginHandler_ pixService:self loginFinished:0];
-			} else {
-				[[NSNotificationCenter defaultCenter] postNotificationName:@"NetworkActivityIndicatorEndNotification" object:nil];
-				[loginHandler_ pixService:self loginFinished:-1];
-				
-			}			
-		}	
+            logined = YES;
+            [[StatusMessageViewController sharedInstance] showMessage:@"ログインしました"];
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"NetworkActivityIndicatorEndNotification" object:nil];
+            [loginHandler_ pixService:self loginFinished:0];
+        }	
 	} else if (con == addBookmarkConnection_) {
 		[addBookmarkConnection_ release];
 		addBookmarkConnection_ = nil;
