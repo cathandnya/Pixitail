@@ -663,10 +663,6 @@
 		0E8365811E1C899A00597B1E /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E83657A1E1C899A00597B1E /* HTMLParser.m */; };
 		0E8365821E1C899A00597B1E /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E83657A1E1C899A00597B1E /* HTMLParser.m */; };
 		0E8365831E1C899A00597B1E /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E83657A1E1C899A00597B1E /* HTMLParser.m */; };
-		0E8365841E1C899A00597B1E /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 0E83657B1E1C899A00597B1E /* README.md */; };
-		0E8365851E1C899A00597B1E /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 0E83657B1E1C899A00597B1E /* README.md */; };
-		0E8365861E1C899A00597B1E /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 0E83657B1E1C899A00597B1E /* README.md */; };
-		0E8365871E1C899A00597B1E /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 0E83657B1E1C899A00597B1E /* README.md */; };
 		0E8672BF117DCE8400B4246C /* library.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 0E8672BE117DCE8400B4246C /* library.xcdatamodel */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0E8672E8117DD88600B4246C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E8672E7117DD88600B4246C /* CoreData.framework */; };
 		0E8675631182B5CD00B4246C /* OAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E8675621182B5CD00B4246C /* OAuthViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -862,8 +858,6 @@
 		0EDC2C3417DC4A9F0093807F /* DropboxCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EDC2C3217DC4A9F0093807F /* DropboxCustom.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0EDDA49619D8DD3900792459 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EDDA49519D8DD3900792459 /* EventKitUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		0EDDA49719D8DD4800792459 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EDDA49319D8DD2B00792459 /* EventKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		0EDDA49819D8DD5200792459 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EDDA49319D8DD2B00792459 /* EventKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		0EDDA49919D8DD5200792459 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EDDA49519D8DD3900792459 /* EventKitUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		0EDE8A0614AEEE8900FDFBF3 /* ScrapingSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EDE8A0514AEEE8900FDFBF3 /* ScrapingSearchViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0EDE8A0714AEEE8900FDFBF3 /* ScrapingSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EDE8A0514AEEE8900FDFBF3 /* ScrapingSearchViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0EDE8A0A14AEEEB300FDFBF3 /* ScrapingSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EDE8A0914AEEEB300FDFBF3 /* ScrapingSearchViewController.xib */; };
@@ -1896,8 +1890,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0EDDA49819D8DD5200792459 /* EventKit.framework in Frameworks */,
-				0EDDA49919D8DD5200792459 /* EventKitUI.framework in Frameworks */,
 				0E2F0FB7196249DD00548CB5 /* CoreTelephony.framework in Frameworks */,
 				0E2F0FB5196249CF00548CB5 /* AVFoundation.framework in Frameworks */,
 				0E15120A1825225F0037CC32 /* ImageIO.framework in Frameworks */,
@@ -3146,7 +3138,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		29B97314FDCFA39411CA2CEA /* pixiViewer */ = {
+		29B97314FDCFA39411CA2CEA = {
 			isa = PBXGroup;
 			children = (
 				0EC3EE7B1D659D330051DF9D /* Constants.h */,
@@ -3332,7 +3324,6 @@
 				0E2F26F919ECCC6B001349C2 /* Sources */,
 				0E2F26FA19ECCC6B001349C2 /* Frameworks */,
 				0E2F26FB19ECCC6B001349C2 /* Resources */,
-				EFFA9EE2D5BCF8C774B0D449 /* [CP] Embed Pods Frameworks */,
 				C6F37A9152C518ED89B00F21 /* [CP] Copy Pods Resources */,
 				0E152B341D0BE0BE00885318 /* ShellScript */,
 			);
@@ -3376,7 +3367,6 @@
 				0E8CD94A19EEA110003DEF2A /* Sources */,
 				0E8CD94B19EEA110003DEF2A /* Frameworks */,
 				0E8CD94C19EEA110003DEF2A /* Resources */,
-				604FDEE08CA5CBFFC6503F39 /* [CP] Embed Pods Frameworks */,
 				DFEE860ECD603D6584B8DEB7 /* [CP] Copy Pods Resources */,
 				0E152B351D0BE10600885318 /* ShellScript */,
 			);
@@ -3420,7 +3410,7 @@
 			attributes = {
 				LastSwiftMigration = 0720;
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0820;
 				TargetAttributes = {
 					0E2F26FC19ECCC6B001349C2 = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -3444,6 +3434,7 @@
 					0E8CD94D19EEA110003DEF2A = {
 						CreatedOnToolsVersion = 6.0.1;
 						DevelopmentTeam = 2Z5DP4X8W8;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -3452,6 +3443,7 @@
 					};
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = 2Z5DP4X8W8;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -3471,7 +3463,8 @@
 				German,
 				ja,
 			);
-			mainGroup = 29B97314FDCFA39411CA2CEA /* pixiViewer */;
+			mainGroup = 29B97314FDCFA39411CA2CEA;
+			productRefGroup = 19C28FACFE9D520D11CA2CBB /* Products */;
 			projectDirPath = "";
 			projectRoot = ../;
 			targets = (
@@ -3757,7 +3750,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		1DCA89BFAAF14766899FDA54 /* [CP] Copy Pods Resources */ = {
@@ -3802,22 +3795,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		604FDEE08CA5CBFFC6503F39 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-widget-Illustail_Widget/Pods-widget-Illustail_Widget-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		A6F19915954FC3B31443D5DA /* [CP] Check Pods Manifest.lock */ = {
@@ -3832,7 +3810,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		BE9F9F441FD8114615167690 /* [CP] Embed Pods Frameworks */ = {
@@ -3907,22 +3885,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		EFFA9EE2D5BCF8C774B0D449 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-widget-Pixitail_Widget/Pods-widget-Pixitail_Widget-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -3960,7 +3923,6 @@
 				0E2F272619ECD082001349C2 /* CHImageCache.swift in Sources */,
 				0E1D469619EF4D6E003769D8 /* DanbooruService.m in Sources */,
 				0E2F271419ECCDA3001349C2 /* ConstantsManager.m in Sources */,
-				0E8365871E1C899A00597B1E /* README.md in Sources */,
 				0E1D469A19EF4DA5003769D8 /* SeigaService.m in Sources */,
 				0E2F271319ECCD98001349C2 /* PixitailConstants.m in Sources */,
 				0E1D468E19EF4B49003769D8 /* TinamiService.m in Sources */,
@@ -4235,7 +4197,6 @@
 				0ECE2DB719C28E9E0009413A /* OAAsynchronousDataFetcher.m in Sources */,
 				0E481C9415E36FF900039FB3 /* NSURLResponse+Encoding.m in Sources */,
 				0E481C9615E36FF900039FB3 /* NSDictionary+Dropbox.m in Sources */,
-				0E8365851E1C899A00597B1E /* README.md in Sources */,
 				0E481C9815E36FF900039FB3 /* NSString+Dropbox.m in Sources */,
 				0E481C9A15E36FF900039FB3 /* UIAlertView+Dropbox.m in Sources */,
 				0E3AC36F15F74E6000BF7816 /* AccountViewControllerBase.m in Sources */,
@@ -4275,7 +4236,6 @@
 				0E8CD97919EEA28F003DEF2A /* CHHtmlParser.m in Sources */,
 				0E8CD97A19EEA28F003DEF2A /* CHHtmlParserConnection.m in Sources */,
 				0E8CD96519EEA201003DEF2A /* WidgetViewController.swift in Sources */,
-				0E8365861E1C899A00597B1E /* README.md in Sources */,
 				0E8CD96619EEA201003DEF2A /* WidgetCell.swift in Sources */,
 				0E8CD96719EEA201003DEF2A /* EntriesItemList.swift in Sources */,
 				0E8CD96819EEA201003DEF2A /* EntriesItem.swift in Sources */,
@@ -4370,7 +4330,6 @@
 				0E7BBB3E1D65DC3000621108 /* NSString+URLEncode.m in Sources */,
 				0E175E57113537B80051D9CF /* TinamiMatrixParser.m in Sources */,
 				0E175E62113541C40051D9CF /* TinamiMatrixViewController.m in Sources */,
-				0E8365841E1C899A00597B1E /* README.md in Sources */,
 				0E175ED1113546E20051D9CF /* TinamiContentParser.m in Sources */,
 				0E175EDA1135492D0051D9CF /* TinamiMediumViewController.m in Sources */,
 				0E175F2B11354FA30051D9CF /* TinamiCommentParser.m in Sources */,
@@ -4647,12 +4606,28 @@
 		0E175C2F1130030D0051D9CF /* AdHoc */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "arm64 armv7 armv7s";
@@ -4663,13 +4638,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7B384771CC664DC861F5CDC7 /* Pods-main-Illustail.adhoc.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Illustail";
 				CODE_SIGN_ENTITLEMENTS = Illustail/Illustail.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				DEVELOPMENT_TEAM = 2Z5DP4X8W8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/LiveSDK\"",
@@ -4695,8 +4670,6 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.cathand.illustail;
 				PRODUCT_NAME = Illustail;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "$(inherited)";
@@ -4707,6 +4680,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8983A39A7C3A6E028BD6D058 /* Pods-widget-Pixitail_Widget.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -4724,7 +4698,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -4767,6 +4740,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4E7EF687B77DD90D6D6C3EDE /* Pods-widget-Pixitail_Widget.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -4784,7 +4758,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -4823,6 +4796,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EE5B0F9215A2E65EDFEF256A /* Pods-widget-Pixitail_Widget.dist.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -4840,7 +4814,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -4880,6 +4853,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = ED8F4586871E47E9295D5945 /* Pods-widget-Pixitail_Widget.adhoc.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -4897,7 +4871,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -4936,13 +4909,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 03C16FFA493A29ADF7D5BAE5 /* Pods-main-Pixitail.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Pixitail";
 				CODE_SIGN_ENTITLEMENTS = Pixitail/Pixitail.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/LiveSDK\"",
@@ -4985,6 +4958,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3256AD7E9C9BB64DE9FD5F0C /* Pods-main-Pixitail.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Pixitail";
 				CODE_SIGN_ENTITLEMENTS = Pixitail/Pixitail.entitlements;
@@ -4992,7 +4966,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/LiveSDK\"",
@@ -5033,12 +5006,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 28182FAE5D3B7334CF214A49 /* Pods-main-Pixitail.dist.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Pixitail";
 				CODE_SIGN_ENTITLEMENTS = Pixitail/Pixitail.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/LiveSDK\"",
@@ -5079,12 +5052,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6260324D9F674705FBEBA47A /* Pods-main-Pixitail.adhoc.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Pixitail";
 				CODE_SIGN_ENTITLEMENTS = Pixitail/Pixitail.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/LiveSDK\"",
@@ -5125,6 +5098,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2DB7E8B037FB69F010DACE65 /* Pods-widget-Illustail_Widget.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -5138,10 +5112,10 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = Classes/Widget/illustail/today.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = Classes/Widget/today.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
+				DEVELOPMENT_TEAM = 2Z5DP4X8W8;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -5171,8 +5145,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cathand.illustail.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = today;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = Classes/Widget/SwiftHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -5184,6 +5156,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DBB5294725AFFEA48227FA63 /* Pods-widget-Illustail_Widget.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -5197,11 +5170,10 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = Classes/Widget/illustail/today.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = Classes/Widget/today.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
+				DEVELOPMENT_TEAM = 2Z5DP4X8W8;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -5228,7 +5200,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cathand.illustail.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = today;
-				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = Classes/Widget/SwiftHeader.h;
 				SWIFT_VERSION = 3.0;
@@ -5240,6 +5211,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 728C541D2127372E285EA4F7 /* Pods-widget-Illustail_Widget.dist.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -5253,11 +5225,10 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = Classes/Widget/illustail/today.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_ENTITLEMENTS = Classes/Widget/today.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
+				DEVELOPMENT_TEAM = 2Z5DP4X8W8;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -5284,8 +5255,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cathand.illustail.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = today;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = Classes/Widget/SwiftHeader.h;
 				SWIFT_VERSION = 3.0;
@@ -5297,6 +5266,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3025D77F7392DC029007F108 /* Pods-widget-Illustail_Widget.adhoc.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -5310,11 +5280,10 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = Classes/Widget/illustail/today.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = Classes/Widget/today.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
+				DEVELOPMENT_TEAM = 2Z5DP4X8W8;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -5341,7 +5310,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cathand.illustail.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = today;
-				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = Classes/Widget/SwiftHeader.h;
 				SWIFT_VERSION = 3.0;
@@ -5352,12 +5320,28 @@
 		0EF4B0F71040DB37001B7935 /* Dist */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "arm64 armv7 armv7s";
@@ -5368,13 +5352,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4A391B954D7AAED4AD9F2090 /* Pods-main-Illustail.dist.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Illustail";
 				CODE_SIGN_ENTITLEMENTS = Illustail/Illustail.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				DEVELOPMENT_TEAM = 2Z5DP4X8W8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/LiveSDK\"",
@@ -5400,8 +5384,6 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.cathand.illustail;
 				PRODUCT_NAME = Illustail;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "$(inherited)";
@@ -5412,12 +5394,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4A21C5214DA574EA62C65257 /* Pods-main-Illustail.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Illustail";
 				CODE_SIGN_ENTITLEMENTS = Illustail/Illustail.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				DEVELOPMENT_TEAM = 2Z5DP4X8W8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/LiveSDK\"",
@@ -5444,8 +5427,6 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.cathand.illustail;
 				PRODUCT_NAME = Illustail;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "$(inherited)";
@@ -5456,13 +5437,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 23B5AFD01CD74AFA9097DB39 /* Pods-main-Illustail.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Illustail";
 				CODE_SIGN_ENTITLEMENTS = Illustail/Illustail.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				DEVELOPMENT_TEAM = 2Z5DP4X8W8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/LiveSDK\"",
@@ -5488,8 +5469,6 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.cathand.illustail;
 				PRODUCT_NAME = Illustail;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "$(inherited)";
@@ -5499,13 +5478,29 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "arm64 armv7 armv7s";
@@ -5515,13 +5510,30 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;

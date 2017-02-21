@@ -48,19 +48,27 @@
 				[mdic setObject:[mdic objectForKey:@"ImageURL"] forKey:@"MediumURLString"];
 			}
 			
-			if ([[mdic objectForKey:@"MediumURLString"] hasPrefix:@"/"]) {
+            if ([[mdic objectForKey:@"MediumURLString"] hasPrefix:@"//"]) {
+                [mdic setObject:[@"http:" stringByAppendingString:[mdic objectForKey:@"MediumURLString"]] forKey:@"MediumURLString"];
+            } else if ([[mdic objectForKey:@"MediumURLString"] hasPrefix:@"/"]) {
 				// 相対パス
 				[mdic setObject:[self.urlBase stringByAppendingString:[mdic objectForKey:@"MediumURLString"]] forKey:@"MediumURLString"];
 			}
-			if ([[mdic objectForKey:@"BigURLString"] hasPrefix:@"/"]) {
+            if ([[mdic objectForKey:@"BigURLString"] hasPrefix:@"//"]) {
+                [mdic setObject:[@"http:" stringByAppendingString:[mdic objectForKey:@"BigURLString"]] forKey:@"BigURLString"];
+            } else if ([[mdic objectForKey:@"BigURLString"] hasPrefix:@"/"]) {
 				// 相対パス
 				[mdic setObject:[self.urlBase stringByAppendingString:[mdic objectForKey:@"BigURLString"]] forKey:@"BigURLString"];
 			}
-			if ([[mdic objectForKey:@"ImageURL"] hasPrefix:@"/"]) {
+            if ([[mdic objectForKey:@"ImageURL"] hasPrefix:@"//"]) {
+                [mdic setObject:[@"http:" stringByAppendingString:[mdic objectForKey:@"ImageURL"]] forKey:@"ImageURL"];
+            } else if ([[mdic objectForKey:@"ImageURL"] hasPrefix:@"/"]) {
 				// 相対パス
 				[mdic setObject:[self.urlBase stringByAppendingString:[mdic objectForKey:@"ImageURL"]] forKey:@"ImageURL"];
 			}
-			if ([[mdic objectForKey:@"ThumbnailURLString"] hasPrefix:@"/"]) {
+            if ([[mdic objectForKey:@"ThumbnailURLString"] hasPrefix:@"//"]) {
+                [mdic setObject:[@"http:" stringByAppendingString:[mdic objectForKey:@"ThumbnailURLString"]] forKey:@"ThumbnailURLString"];
+            } else if ([[mdic objectForKey:@"ThumbnailURLString"] hasPrefix:@"/"]) {
 				// 相対パス
 				[mdic setObject:[self.urlBase stringByAppendingString:[mdic objectForKey:@"ThumbnailURLString"]] forKey:@"ThumbnailURLString"];
 			} else if (![[mdic objectForKey:@"ThumbnailURLString"] hasPrefix:@"http"]) {

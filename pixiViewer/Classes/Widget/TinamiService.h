@@ -9,5 +9,5 @@
 #import "Service.h"
 
 @interface TinamiService : Service
-
+@property(strong) NSString *authKey;
 @end

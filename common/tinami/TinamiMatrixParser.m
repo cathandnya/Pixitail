@@ -36,8 +36,12 @@
 			[info_ setObject:[attributes objectForKey:@"id"] forKey:@"IllustID"];
 		}
 	} else if ([name isEqual:@"thumbnail_150x150"]) {
-		if ([attributes objectForKey:@"url"]) {
-			[info_ setObject:[attributes objectForKey:@"url"] forKey:@"ThumbnailURLString"];
+        NSString *url = [attributes objectForKey:@"url"];
+		if (url) {
+            if ([url hasPrefix:@"//"]) {
+                url = [@"http:" stringByAppendingString:url];
+            }
+			[info_ setObject:url forKey:@"ThumbnailURLString"];
 		}
 	}
 }

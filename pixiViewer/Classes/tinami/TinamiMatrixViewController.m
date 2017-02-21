@@ -67,7 +67,7 @@
 
 	pictureIsFound_ = NO;
 	parser.delegate = self;
-	con = [[CHHtmlParserConnection alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://api.tinami.com/%@&api_key=%@&page=%d", self.method, TINAMI_API_KEY, loadedPage_ + 1]]];
+	con = [[CHHtmlParserConnection alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://www.tinami.com/api/%@&api_key=%@&page=%d&auth_key=%@", self.method, TINAMI_API_KEY, loadedPage_ + 1, [Tinami sharedInstance].authKey]]];
 	//con = [[CHHtmlParserConnection alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://api.tinami.com/%@", self.method]]];
 	
 	con.referer = [self referer];

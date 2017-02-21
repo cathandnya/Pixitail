@@ -1,24 +1,24 @@
 PODS:
-  - Google-Mobile-Ads-SDK (7.8.1)
+  - Google-Mobile-Ads-SDK (7.17.0)
   - RegexKitLite (4.0)
   - SFHFKeychainUtils (0.0.1)
   - TTTAttributedLabel (2.0.0)
   - UIImage+animatedGif (0.1.0)
 
 DEPENDENCIES:
-  - Google-Mobile-Ads-SDK (~> 7.0)
+  - Google-Mobile-Ads-SDK
   - RegexKitLite
   - SFHFKeychainUtils
   - TTTAttributedLabel
   - UIImage+animatedGif
 
 SPEC CHECKSUMS:
-  Google-Mobile-Ads-SDK: 3c2a6656117989469bfe7645640aa1de024a4c6c
+  Google-Mobile-Ads-SDK: a8bf4211624999b73e4184be516f94770b139525
   RegexKitLite: c0e4c12e6e7de0769f3a3ed679f0f61604170661
   SFHFKeychainUtils: 9576b411a79a058f4d5381ace6f3242b9a62e664
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
   UIImage+animatedGif: 21cff7203edfb45ca0dd035505a4988cc0156356
 
-PODFILE CHECKSUM: 1a2e888d4ef616fe012117471f9b4cfe1c55bffc
+PODFILE CHECKSUM: 927a0842432aeb899b6457a152b8595c2de5a5d8
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.2.0

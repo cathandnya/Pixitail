@@ -21,11 +21,11 @@
 }
 
 - (NSString *) matrixURL {
-	return [NSString stringWithFormat:@"http://api.tinami.com/%@&api_key=%@&page=%d", self.method, TINAMI_API_KEY, loadedPage_ + 1];
+    return [NSString stringWithFormat:@"https://www.tinami.com/api/%@&api_key=%@&auth_key=%@&page=%d", self.method, TINAMI_API_KEY, [Tinami sharedInstance].authKey, loadedPage_ + 1];
 }
 
 - (NSString *) mediumURL:(NSString *)iid {
-	return [NSString stringWithFormat:@"http://api.tinami.com/content/info?api_key=%@&cont_id=%@", TINAMI_API_KEY, iid];
+	return [NSString stringWithFormat:@"https://www.tinami.com/api/content/info?api_key=%@&auth_key=%@&cont_id=%@", TINAMI_API_KEY, [Tinami sharedInstance].authKey, iid];
 }
 
 - (MediumParser *) mediumParser {

@@ -11,12 +11,14 @@
 
 @implementation TinamiAuthParser
 
-@synthesize status, errorMessage, creatorID;
+@synthesize status, errorMessage, creatorID, authKey;
 
 - (void) dealloc {
 	[status release];
 	[errorMessage release];
 	[creatorID release];
+    [stringBuffer release];
+    self.authKey = nil;
 	
 	[super dealloc];
 }
@@ -34,14 +36,20 @@
 		self.errorMessage = [attributes objectForKey:@"msg"];
 	} else if ([name isEqual:@"creator"]) {
 		self.creatorID = [attributes objectForKey:@"id"];
+    } else if ([name isEqual:@"auth_key"]) {
+        stringBuffer = [[NSMutableString alloc] init];
 	}
 }
 
 
 - (void) endElementName:(NSString *)name {
+    if ([name isEqual:@"auth_key"]) {
+        self.authKey = [stringBuffer stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    }
 }
 
 - (void) characters:(const unsigned char *)ch length:(int)len {
+    [stringBuffer appendString:[[[NSString alloc] initWithData:[NSData dataWithBytesNoCopy:(void *)ch length:len freeWhenDone:NO] encoding:encoding] autorelease]];
 }
 
 @end

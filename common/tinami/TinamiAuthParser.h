@@ -13,10 +13,12 @@
 	NSString *status;
 	NSString *errorMessage;
 	NSString *creatorID;
+    NSMutableString *stringBuffer;
 }
 
 @property(readwrite, retain, nonatomic) NSString *status;
 @property(readwrite, retain, nonatomic) NSString *errorMessage;
 @property(readwrite, retain, nonatomic) NSString *creatorID;
+@property(readwrite, retain, nonatomic) NSString *authKey;
 
 @end

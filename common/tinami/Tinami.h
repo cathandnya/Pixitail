@@ -17,6 +17,7 @@
 }
 
 @property(readonly, nonatomic, retain) NSString *creatorID;
+@property(readwrite, nonatomic, retain) NSString *authKey;
 
 + (Tinami *) sharedInstance;
 

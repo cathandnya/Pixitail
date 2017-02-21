@@ -16,6 +16,7 @@
 @implementation Tinami
 
 @synthesize creatorID;
+@synthesize authKey;
 
 + (Tinami *) sharedInstance {
 	static Tinami	*obj = nil;
@@ -27,11 +28,12 @@
 
 - (void) dealloc {
 	[creatorID release];
+    self.authKey = nil;
 	[super dealloc];
 }
 
 - (NSString *) hostName {
-	return @"api.tinami.com";
+	return @"www.tinami.com";
 }
 
 - (NSTimeInterval) loginExpiredTimeInterval {
@@ -54,10 +56,10 @@
 		// logout
 		loginHandler_ = handler;
 		
-		NSMutableURLRequest		*req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://api.tinami.com/logout?api_key=%@", TINAMI_API_KEY]]];
+		NSMutableURLRequest		*req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://www.tinami.com/api/logout?api_key=%@", TINAMI_API_KEY]]];
 		[req autorelease];
 	
-		if ([[Reachability reachabilityWithHostName:@"api.tinami.com"] currentReachabilityStatus] == 0) {
+		if ([[Reachability reachabilityWithHostName:@"www.tinami.com"] currentReachabilityStatus] == 0) {
 			// 接続不可
 			return -2;
 		}
@@ -106,11 +108,11 @@
 	
 	[self ratingCancel];
 	
-	NSMutableURLRequest		*req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://api.tinami.com/content/support"]];
+	NSMutableURLRequest		*req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://www.tinami.com/api/content/support"]];
 	NSString				*body = nil;
 	[req autorelease];
 
-	body = [NSString stringWithFormat:@"api_key=%@&cont_id=%@", TINAMI_API_KEY, [info objectForKey:@"IllustID"]];
+	body = [NSString stringWithFormat:@"api_key=%@&cont_id=%@&auth_key=%@", TINAMI_API_KEY, [info objectForKey:@"IllustID"], self.authKey];
 
 	[req setHTTPMethod:@"POST"];
 	[req setHTTPBody:[body dataUsingEncoding:NSASCIIStringEncoding]];
@@ -144,11 +146,11 @@
 	
 	[self commentCancel];
 	
-	NSMutableURLRequest		*req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://api.tinami.com/content/comment/add"]];
+	NSMutableURLRequest		*req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://www.tinami.com/api/content/comment/add"]];
 	NSString				*body = nil;
 	[req autorelease];
 	
-	body = [NSString stringWithFormat:@"api_key=%@&cont_id=%@&comment=%@", TINAMI_API_KEY, [info objectForKey:@"IllustID"], encodeURIComponent(str)];
+	body = [NSString stringWithFormat:@"api_key=%@&cont_id=%@&comment=%@&auth_key=%@", TINAMI_API_KEY, [info objectForKey:@"IllustID"], encodeURIComponent(str), self.authKey];
 
 	[req setHTTPMethod:@"POST"];
 	[req setHTTPBody:[body dataUsingEncoding:NSASCIIStringEncoding]];
@@ -174,13 +176,13 @@
 	NSMutableURLRequest		*req;
 	NSMutableString			*body;
 
-	req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://api.tinami.com/%@/add", type]]];
+	req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://www.tinami.com/api/%@/add", type]]];
 	[req autorelease];
 		
 	if ([type isEqual:@"collection"]) {
-		body = [NSMutableString stringWithFormat:@"api_key=%@&cont_id=%@", TINAMI_API_KEY, illustID];
+		body = [NSMutableString stringWithFormat:@"api_key=%@&cont_id=%@&auth_key=%@", TINAMI_API_KEY, illustID, self.authKey];
 	} else if ([type isEqual:@"bookmark"]) {
-		body = [NSMutableString stringWithFormat:@"api_key=%@&prof_id=%@", TINAMI_API_KEY, illustID];
+		body = [NSMutableString stringWithFormat:@"api_key=%@&prof_id=%@&auth_key=%@", TINAMI_API_KEY, illustID, self.authKey];
 	} else {
 		assert(0);
 	}
@@ -321,7 +323,7 @@
 		}
 		DLog(@"%@ -> %@", self.username, encodeURIComponent(self.username));
 	
-		if ([[Reachability reachabilityWithHostName:@"api.tinami.com"] currentReachabilityStatus] == 0) {
+		if ([[Reachability reachabilityWithHostName:@"www.tinami.com"] currentReachabilityStatus] == 0) {
 			// 接続不可
 			[[NSNotificationCenter defaultCenter] postNotificationName:@"NetworkActivityIndicatorEndNotification" object:nil];
 			
@@ -329,7 +331,7 @@
 			return;
 		}
 	
-		NSMutableURLRequest		*req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://api.tinami.com/auth"]];
+		NSMutableURLRequest		*req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://www.tinami.com/api/auth"]];
 		[req autorelease];
 		[req setHTTPMethod:@"POST"];
 		[req setHTTPBody:[body dataUsingEncoding:NSASCIIStringEncoding]];
@@ -352,7 +354,8 @@
 		[parser addData:loginRet_];
 		[loginRet_ release];
 		loginRet_ = nil;
-		if ([parser.status isEqual:@"ok"] == NO) {
+        self.authKey = parser.authKey;
+		if (self.authKey == nil) {
 			// ログイン失敗
 			[[NSNotificationCenter defaultCenter] postNotificationName:@"NetworkActivityIndicatorEndNotification" object:nil];
 			
@@ -360,18 +363,17 @@
 			return;
 		}
 
-		NSString *body = [NSString stringWithFormat:@"api_key=%@", TINAMI_API_KEY];
-		if ([[Reachability reachabilityWithHostName:@"api.tinami.com"] currentReachabilityStatus] == 0) {
+		if ([[Reachability reachabilityWithHostName:@"www.tinami.com"] currentReachabilityStatus] == 0) {
 			// 接続不可
 			[[NSNotificationCenter defaultCenter] postNotificationName:@"NetworkActivityIndicatorEndNotification" object:nil];
 
 			[loginHandler_ pixService:self loginFinished:-1];
 			return;
 		}	
-		NSMutableURLRequest		*req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://api.tinami.com/login/info"]];
+        NSString *body = [NSString stringWithFormat:@"https://www.tinami.com/api/login/info?api_key=%@&auth_key=%@", TINAMI_API_KEY, self.authKey];
+        NSURL *url = [NSURL URLWithString:body];
+		NSURLRequest		*req = [[NSURLRequest alloc] initWithURL:url];
 		[req autorelease];
-		[req setHTTPMethod:@"POST"];
-		[req setHTTPBody:[body dataUsingEncoding:NSASCIIStringEncoding]];
 		
 		loginRet_ = [[NSMutableData alloc] init];
 		

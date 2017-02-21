@@ -46,7 +46,7 @@
 	TinamiUserlistParser		*parser = [[TinamiUserlistParser alloc] initWithEncoding:NSUTF8StringEncoding];
 	CHHtmlParserConnection	*con;
 	
-	con = [[CHHtmlParserConnection alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://api.tinami.com/%@&api_key=%@&page=%d", self.method, TINAMI_API_KEY, loadedPage_ + 1]]];
+	con = [[CHHtmlParserConnection alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://www.tinami.com/api/%@&api_key=%@&auth_key=%@&page=%d", self.method, TINAMI_API_KEY, [Tinami sharedInstance].authKey, loadedPage_ + 1]]];
 	
 	con.delegate = self;
 	parser.method = self.method;

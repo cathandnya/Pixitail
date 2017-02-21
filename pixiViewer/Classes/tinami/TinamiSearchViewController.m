@@ -132,7 +132,7 @@
 }
 
 - (NSString *) urlString {
-	return [NSString stringWithFormat:@"http://api.tinami.com/content/search?api_key=%@&%@&%@&%@&page=%d", TINAMI_API_KEY, [NSString stringWithFormat:[self selectedScope], encodeURIComponent(self.searchTerm)], [self selectedType], [self selectedSort], loadedPage_ + 1];
+	return [NSString stringWithFormat:@"https://www.tinami.com/api/content/search?api_key=%@&auth_key=%@&%@&%@&%@&page=%d", TINAMI_API_KEY, [Tinami sharedInstance].authKey, [NSString stringWithFormat:[self selectedScope], encodeURIComponent(self.searchTerm)], [self selectedType], [self selectedSort], loadedPage_ + 1];
 }
 
 - (NSString *) referer {
